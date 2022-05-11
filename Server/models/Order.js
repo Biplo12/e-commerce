@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const OrderSchema = new mongoose.Schema(
   {
     userId: { type: String, required: true },
-    product: [
+    products: [
       {
         productId: {
           type: String,
@@ -15,11 +15,11 @@ const OrderSchema = new mongoose.Schema(
         },
       },
     ],
-    ammout: { type: Number, required: true },
+    amount: { type: Number, required: true },
     adress: { type: Object, required: true },
     status: { type: String, default: "pending" },
   },
   { timestamps: true }
 );
 
-module.exports = moongose.model("Order", OrderSchema);
+module.exports = mongoose.model("Order", OrderSchema);

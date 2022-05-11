@@ -6,7 +6,7 @@ const {
   verifyTokenAdmin,
 } = require("./verifyToken");
 
-//GET ALL PRODUCTS MODULE
+//GET ALL CARTS MODULE
 router.get("/", verifyTokenAdmin, async (req, res) => {
   try {
     const carts = await Cart.find();
@@ -56,8 +56,8 @@ router.delete("/:id", verifyTokenAuthorization, async (req, res) => {
 //GET CART MODULE
 router.get("/:id", verifyTokenAuthorization, async (req, res) => {
   try {
-    const Cart = await Cart.find({ userId: req.params.userId });
-    res.status(200).json(Cart);
+    const cart = await Cart.find({ userId: req.params.userId });
+    res.status(200).json(cart);
   } catch (err) {
     res.status(500).json(err);
   }
