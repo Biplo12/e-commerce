@@ -1,76 +1,129 @@
 import React from "react";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import cart from "../Assets/cart.svg";
+import searchIcon from "../Assets/search.svg";
 
-const Container = styled.div``;
+const NavbarContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  margin: 0 auto;
+  height: 70px;
+`;
 
-const Left = styled.div``;
+const NavbarLeft = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+`;
 
-const Logo = styled.div``;
+const NavbarLogo = styled.div``;
 
-const Right = styled.div``;
+const StyledLink = styled(Link)`
+  text-decoration: none;
 
-const List = styled.ul``;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+`;
 
-const MenuItem = styled.li``;
+const NavbarSearchContainer = styled.div`
+  padding: 5px 10px;
+  border: 1px solid white;
+  border-radius: 50px;
+  outline: none;
+  display: flex;
+`;
+
+const NavbarSearch = styled.input`
+  border: none;
+  outline: none;
+`;
+
+const NavbarRight = styled.div`
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 70%;
+`;
+
+const NavbarList = styled.ul`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+const NavbarMenuItem = styled.li`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+`;
 
 const Navbar = () => {
   return (
-    <Container>
-      <Left>
-        <Logo>
+    <NavbarContainer>
+      <NavbarLeft>
+        <NavbarLogo>
           <h3>e-commerce</h3>
-        </Logo>
-        <Search>
-          <input type="text" placeholder="Search" />
-        </Search>
-      </Left>
-      <Right>
-        <List>
-          <Link to="/Home">
-            <MenuItem>
+        </NavbarLogo>
+        <NavbarSearchContainer>
+          <NavbarSearch type="text" placeholder="Search" />
+          <img src={searchIcon} alt="search" width={"15px"} />
+        </NavbarSearchContainer>
+      </NavbarLeft>
+      <NavbarRight>
+        <NavbarList>
+          <StyledLink to="/Home">
+            <NavbarMenuItem>
               <p>Home</p>
-            </MenuItem>
-          </Link>
-          <Link to="/new-collecion">
-            <MenuItem>
-              <p>New Collection</p>
-            </MenuItem>
-          </Link>
-          <Link to="/men">
-            <MenuItem>
+            </NavbarMenuItem>
+          </StyledLink>
+          <StyledLink to="/new-collecion">
+            <NavbarMenuItem>
+              <p>New collection</p>
+            </NavbarMenuItem>
+          </StyledLink>
+          <StyledLink to="/men">
+            <NavbarMenuItem>
               <p>For men</p>
-            </MenuItem>
-          </Link>
-          <Link to="/woman">
-            <MenuItem>
+            </NavbarMenuItem>
+          </StyledLink>
+          <StyledLink to="/woman">
+            <NavbarMenuItem>
               <p>For woman</p>
-            </MenuItem>
-          </Link>
-          <Link to="/accessories">
-            <MenuItem>
+            </NavbarMenuItem>
+          </StyledLink>
+          <StyledLink to="/accessories">
+            <NavbarMenuItem>
               <p>Accessories</p>
-            </MenuItem>
-          </Link>
-          <Link to="/sign-up">
-            <MenuItem>
+            </NavbarMenuItem>
+          </StyledLink>
+          <StyledLink to="/sign-up">
+            <NavbarMenuItem>
               <p>SIGN UP</p>
-            </MenuItem>
-          </Link>
-          <Link to="/sign-in">
-            <MenuItem>
-              <p>Sign IN</p>
-            </MenuItem>
-          </Link>
-          <Link to="/cart">
-            <MenuItem>
-              <ShoppingCartOutlined />
-            </MenuItem>
-          </Link>
-        </List>
-      </Right>
-    </Container>
+            </NavbarMenuItem>
+          </StyledLink>
+          <StyledLink to="/sign-in">
+            <NavbarMenuItem>
+              <p>SIGN IN</p>
+            </NavbarMenuItem>
+          </StyledLink>
+          <StyledLink to="/cart">
+            <NavbarMenuItem>
+              <img src={cart} alt="" width={"20px"} />
+            </NavbarMenuItem>
+          </StyledLink>
+        </NavbarList>
+      </NavbarRight>
+    </NavbarContainer>
   );
 };
 
