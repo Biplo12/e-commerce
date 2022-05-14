@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import cart from "../Assets/cart.svg";
+import cartIcon from "../Assets/cart.svg";
 import searchIcon from "../Assets/search.svg";
-
+import menuIcon from "../Assets/menu.svg";
+import { mobile } from "../responsive";
 const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -11,6 +12,7 @@ const NavbarContainer = styled.div`
   width: 95%;
   margin: 0 auto;
   height: 70px;
+  ${mobile({ height: "50px" })}
 `;
 
 const NavbarLeft = styled.div`
@@ -18,13 +20,17 @@ const NavbarLeft = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 30%;
+  @media screen and (max-width: 1240px) {
+    width: 90%;
+  }
 `;
 
 const NavbarLogo = styled.div``;
 
 const StyledLink = styled(Link)`
+  ${mobile({ fontSize: "12px" })}
   text-decoration: none;
-
+  text-align: center;
   &:focus,
   &:hover,
   &:visited,
@@ -52,12 +58,18 @@ const NavbarRight = styled.div`
   justify-content: end;
   align-items: center;
   width: 70%;
+  @media screen and (max-width: 1240px) {
+    width: 10%;
+  }
 `;
 
 const NavbarList = styled.ul`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  @media screen and (max-width: 1240px) {
+    display: none;
+  }
 `;
 
 const NavbarMenuItem = styled.li`
@@ -66,6 +78,8 @@ const NavbarMenuItem = styled.li`
   align-items: center;
   padding: 25px;
 `;
+
+<style>menuIconHamburger{{ display: "none" }}</style>;
 
 const Navbar = () => {
   return (
@@ -118,9 +132,15 @@ const Navbar = () => {
           </StyledLink>
           <StyledLink to="/cart">
             <NavbarMenuItem>
-              <img src={cart} alt="" width={"20px"} />
+              <img src={cartIcon} alt="" width={"20px"} />
             </NavbarMenuItem>
           </StyledLink>
+          <img
+            src={menuIcon}
+            alt="hamburgerMenu"
+            width={"20px"}
+            className="menuIconHamburger"
+          />
         </NavbarList>
       </NavbarRight>
     </NavbarContainer>
