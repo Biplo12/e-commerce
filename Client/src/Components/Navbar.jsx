@@ -3,25 +3,42 @@ import { Link } from "react-router-dom";
 import cartIcon from "../Assets/cart.svg";
 import searchIcon from "../Assets/search.svg";
 import menuIcon from "../Assets/menu.svg";
+import closeMenuIcon from "../Assets/close.svg";
 import navbarStyles from "./Styles/navbar.scss";
 
 const Navbar = () => {
-  // const [mobileMenu, setMobileMenu] = useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(true);
+
+  const handleNavbar = () => setNavbarOpen(!navbarOpen);
 
   return (
-    <div className="navbar-container">
-      <div className="navbar-left">
-        <div className="navbar-logo-search-wrapper">
-          <div className="navbar-logo">
+    <div
+      className={navbarOpen ? "navbar-container" : "navbar-container mobile"}
+    >
+      <div className={navbarOpen ? "navbar-left" : "navbar-left mobile"}>
+        <div
+          className={
+            navbarOpen
+              ? "navbar-logo-search-wrapper"
+              : "navbar-logo-search-wrapper mobile"
+          }
+        >
+          <div className={navbarOpen ? "navbar-logo" : "navbar-logo mobile"}>
             <h3>e-commerce</h3>
           </div>
-          <div className="navbar-search-container">
+          <div
+            className={
+              navbarOpen
+                ? "navbar-search-container"
+                : "navbar-search-container mobile"
+            }
+          >
             <input type="text" placeholder="Search" />
             <img src={searchIcon} alt="Search icon" width="20px" />
           </div>
         </div>
       </div>
-      <div className="navbar-right">
+      <div className={navbarOpen ? "navbar-right" : "navbar-right mobile"}>
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -42,16 +59,18 @@ const Navbar = () => {
             <Link to="/login">SIGN IN</Link>
           </li>
           <li>
-            <img
-              src={cartIcon}
-              alt="Cart icon"
-              className="cartIcon"
-              width="20px"
-            />
+            <Link to="/cart">
+              <img
+                src={cartIcon}
+                alt="Cart icon"
+                className={navbarOpen ? "cartIcon" : "cartIcon mobile"}
+                width="20px"
+              />
+            </Link>
           </li>
-          <li>
+          <li onClick={handleNavbar}>
             <img
-              src={menuIcon}
+              src={navbarOpen ? menuIcon : closeMenuIcon}
               alt="Menu icon"
               className="menuIcon"
               width="20px"
