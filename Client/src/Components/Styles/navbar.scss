@@ -40,8 +40,8 @@
   }
   .navbar-right {
     display: flex;
-    justify-content: end;
-    align-items: start;
+    justify-content: flex-end;
+    align-items: flex-start;
     flex: 3;
     ul {
       display: flex;

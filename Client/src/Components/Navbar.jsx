@@ -1,10 +1,10 @@
-import react, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import cartIcon from "../Assets/cart.svg";
 import searchIcon from "../Assets/search.svg";
 import menuIcon from "../Assets/menu.svg";
 import closeMenuIcon from "../Assets/close.svg";
-import navbarStyles from "./Styles/navbar.scss";
+import "./Styles/navbar.scss";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(true);
