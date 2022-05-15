@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import cartIcon from "../Assets/cart.svg";
-import searchIcon from "../Assets/search.svg";
-import menuIcon from "../Assets/menu.svg";
-import closeMenuIcon from "../Assets/close.svg";
+import cartIcon from "../Assets/Navbar/cart.svg";
+import searchIcon from "../Assets/Navbar/search.svg";
+import menuIcon from "../Assets/Navbar/menu.svg";
+import closeMenuIcon from "../Assets/Navbar/close.svg";
 import "./Styles/navbar.scss";
 
 const Navbar = () => {
@@ -24,7 +24,9 @@ const Navbar = () => {
           }
         >
           <div className={navbarOpen ? "navbar-logo" : "navbar-logo mobile"}>
-            <h3>e-commerce</h3>
+            <Link to="/">
+              <h3>e-commerce</h3>
+            </Link>
           </div>
           <div
             className={
