@@ -34,6 +34,9 @@ const Navbar = () => {
           <li>
             <Link to="/woman">For woman</Link>
           </li>
+          <li>
+            <Link to="/woman">Accessories</Link>
+          </li>
         </ul>
       </div>
       <div className={navbarOpen ? "navbar-right" : "navbar-right mobile"}>
