@@ -9,9 +9,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #000;
   .navbar-left {
-    width: 50%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -93,6 +91,7 @@
   .navbar-left ul {
     position: absolute;
     top: -1000px;
+    left: -1000px;
   }
   .navbar-right ul li {
     position: absolute;
@@ -127,11 +126,13 @@
       display: flex !important;
       position: relative !important;
       top: auto !important;
+      left: auto !important;
       flex-direction: column !important;
       justify-content: space-between !important;
       margin-top: 50px;
+      padding: 0;
       li {
-        padding: 20px;
+        padding: 10px;
         a {
           font-size: 1.6rem;
         }
@@ -163,7 +164,7 @@
     }
   }
 }
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 550px) {
   .navbar-container {
     flex-direction: column;
     justify-content: space-evenly;
@@ -183,9 +184,11 @@
   .navbar-logo-search-wrapper {
     position: absolute;
     top: -1000px;
+    left: -1000px;
   }
   .navbar-logo-search-wrapper.mobile {
     position: relative;
     top: auto;
+    left: auto;
   }
 }
