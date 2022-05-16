@@ -16,31 +16,11 @@ const Navbar = () => {
       className={navbarOpen ? "navbar-container" : "navbar-container mobile"}
     >
       <div className={navbarOpen ? "navbar-left" : "navbar-left mobile"}>
-        <div
-          className={
-            navbarOpen
-              ? "navbar-logo-search-wrapper"
-              : "navbar-logo-search-wrapper mobile"
-          }
-        >
-          <div className={navbarOpen ? "navbar-logo" : "navbar-logo mobile"}>
-            <Link to="/">
-              <h3>e-commerce</h3>
-            </Link>
-          </div>
-          <div
-            className={
-              navbarOpen
-                ? "navbar-search-container"
-                : "navbar-search-container mobile"
-            }
-          >
-            <input type="text" placeholder="Search" />
-            <img src={searchIcon} alt="Search icon" width="20px" />
-          </div>
+        <div className={navbarOpen ? "navbar-logo" : "navbar-logo mobile"}>
+          <Link to="/">
+            <h1>e-commerce</h1>
+          </Link>
         </div>
-      </div>
-      <div className={navbarOpen ? "navbar-right" : "navbar-right mobile"}>
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -54,11 +34,33 @@ const Navbar = () => {
           <li>
             <Link to="/woman">For woman</Link>
           </li>
+        </ul>
+      </div>
+      <div className={navbarOpen ? "navbar-right" : "navbar-right mobile"}>
+        <div
+          className={
+            navbarOpen
+              ? "navbar-logo-search-wrapper"
+              : "navbar-logo-search-wrapper mobile"
+          }
+        >
+          <div
+            className={
+              navbarOpen
+                ? "navbar-search-container"
+                : "navbar-search-container mobile"
+            }
+          >
+            <input type="text" placeholder="Search" />
+            <img src={searchIcon} alt="Search icon" width="20px" />
+          </div>
+        </div>
+        <ul>
           <li>
-            <Link to="/register">SIGN UP</Link>
+            <Link to="/register">REGISTER</Link>
           </li>
           <li>
-            <Link to="/login">SIGN IN</Link>
+            <Link to="/login">LOGIN</Link>
           </li>
           <li>
             <Link to="/cart">
@@ -66,7 +68,7 @@ const Navbar = () => {
                 src={cartIcon}
                 alt="Cart icon"
                 className={navbarOpen ? "cartIcon" : "cartIcon mobile"}
-                width="20px"
+                width="30px"
               />
             </Link>
           </li>
