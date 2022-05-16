@@ -1,12 +1,11 @@
 import React from "react";
 import "../Components/Styles/hero.scss";
-import video from "../Assets/Hero/hero-video.mp4";
 const Hero = () => {
   return (
     <>
       <div className="hero-container">
         <video autoPlay muted loop className="hero-video">
-          <source src={video} type="video/mp4" />
+          <source src="/Assets/Hero/hero-video.mp4" type="video/mp4" />
         </video>
         <div className="title-container">
           <div className="title-content">

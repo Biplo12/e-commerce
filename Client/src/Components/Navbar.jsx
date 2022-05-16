@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import cartIcon from "../Assets/Navbar/cart.svg";
-import searchIcon from "../Assets/Navbar/search.svg";
-import menuIcon from "../Assets/Navbar/menu.svg";
-import closeMenuIcon from "../Assets/Navbar/close.svg";
 import "./Styles/navbar.scss";
+import { NavbarLink } from "./NavbarLink";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(true);
-
   const handleNavbar = () => setNavbarOpen(!navbarOpen);
 
+  const NavbarLinks = NavbarLink.map((index, id) => (
+    <li key={id}>
+      <Link to={index.linkTo}>{index.linkName}</Link>
+    </li>
+  ));
+  const NavbarLinksLeft = NavbarLinks.slice(1, 5);
+  const NavbarLinksRight = NavbarLinks.slice(5, 7);
   return (
     <div
       className={navbarOpen ? "navbar-container" : "navbar-container mobile"}
@@ -21,23 +24,7 @@ const Navbar = () => {
             <h1>e-commerce</h1>
           </Link>
         </div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/new-collection">New Collection</Link>
-          </li>
-          <li>
-            <Link to="/men">For men</Link>
-          </li>
-          <li>
-            <Link to="/woman">For woman</Link>
-          </li>
-          <li>
-            <Link to="/woman">Accessories</Link>
-          </li>
-        </ul>
+        <ul>{NavbarLinksLeft}</ul>
       </div>
       <div className={navbarOpen ? "navbar-right" : "navbar-right mobile"}>
         <div
@@ -55,20 +42,19 @@ const Navbar = () => {
             }
           >
             <input type="text" placeholder="Search" />
-            <img src={searchIcon} alt="Search icon" width="20px" />
+            <img
+              src="/Assets/Navbar/search.svg"
+              alt="Search icon"
+              width="20px"
+            />
           </div>
         </div>
         <ul>
-          <li>
-            <Link to="/register">REGISTER</Link>
-          </li>
-          <li>
-            <Link to="/login">LOGIN</Link>
-          </li>
+          {NavbarLinksRight}
           <li>
             <Link to="/cart">
               <img
-                src={cartIcon}
+                src="/Assets/Navbar/cart.svg"
                 alt="Cart icon"
                 className={navbarOpen ? "cartIcon" : "cartIcon mobile"}
                 width="30px"
@@ -77,7 +63,11 @@ const Navbar = () => {
           </li>
           <li onClick={handleNavbar}>
             <img
-              src={navbarOpen ? menuIcon : closeMenuIcon}
+              src={
+                navbarOpen
+                  ? "/Assets/Navbar/menu.svg"
+                  : "/Assets/Navbar/close.svg"
+              }
               alt="Menu icon"
               className="menuIcon"
               width="20px"
