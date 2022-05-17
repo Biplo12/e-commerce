@@ -2,6 +2,10 @@ import { useState } from "react";
 import { ProductData } from "./ProductData";
 const ProductContent = () => {
   const [toggle, setToggle] = useState(1);
+  const [stylingOpen, setStylingOpen] = useState(true);
+  const [compositionOpen, setCompositionOpen] = useState(true);
+  const handleStyling = () => setStylingOpen(!stylingOpen);
+  const handleComposition = () => setCompositionOpen(!compositionOpen);
   return (
     <div className="product-container">
       <div className="product-left">
@@ -47,18 +51,44 @@ const ProductContent = () => {
             <button className="size-button">CHECK SIZE</button>
             <button className="cart-button">ADD TO CART</button>
           </div>
-          <div className="styling-section">
-            <button className="styling-button">+ STYLING &amp; FIT</button>
-            <p>
+          <div
+            className={
+              stylingOpen ? "styling-section" : "styling-section active"
+            }
+          >
+            <button className="styling-button" onClick={handleStyling}>
+              + STYLING &amp; FIT
+            </button>
+            <p
+              className={
+                stylingOpen
+                  ? "styling-section-paragraf"
+                  : "styling-section-paragraf active"
+              }
+            >
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti
               assumenda architecto maxime minus repellendus button ullam
               explicabo perferendis voluptatem! Quisquam assumenda ratione,
               delectus facilis in voluptatem neque aliquid animi laborum!
             </p>
           </div>
-          <div className="composition-section">
-            <button className="composition-button">+ COMPOSITION</button>
-            <p>
+          <div
+            className={
+              compositionOpen
+                ? "composition-section"
+                : "composition-section active"
+            }
+          >
+            <button className="composition-button" onClick={handleComposition}>
+              + COMPOSITION
+            </button>
+            <p
+              className={
+                compositionOpen
+                  ? "composition-section-paragraf"
+                  : "composition-section-paragraf active"
+              }
+            >
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis
               debitis necessitatibus placeat illo nostrum, eum quos consectetur
               eius veritatis quis vero fugit consequuntur molestiae consequatur,

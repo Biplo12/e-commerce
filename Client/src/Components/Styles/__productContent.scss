@@ -54,12 +54,26 @@
           background: transparent;
           cursor: pointer;
         }
-        p {
-          display: none;
+        .styling-section-paragraf,
+        .composition-section-paragraf {
+          opacity: 0;
+          padding: 0;
+          height: 0;
+          overflow: hidden;
+          transition: all 0.6s ease-out;
         }
       }
       .styling-section {
         padding: $p-vertical-20;
+      }
+      .styling-section.active,
+      .composition-section.active {
+        .styling-section-paragraf,
+        .composition-section-paragraf {
+          opacity: 1;
+          height: auto;
+          padding: $p-vertical-20;
+        }
       }
     }
   }

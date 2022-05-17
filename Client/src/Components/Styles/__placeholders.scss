@@ -52,12 +52,17 @@
   top: 0;
   left: 0;
 }
+%absolute-bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 %button {
   padding: 10px 30px;
   background: transparent;
   border: 1px solid #fff;
   font-size: 0.8rem;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-out;
   cursor: pointer;
 }
 %button:hover {
@@ -101,6 +106,11 @@
 }
 @mixin absolute() {
   position: absolute;
+  top: 0;
+  left: 0;
+}
+@mixin fixed() {
+  position: fixed;
   top: 0;
   left: 0;
 }

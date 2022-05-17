@@ -76,6 +76,7 @@
   .navbar-container.mobile {
     @include absolute();
     @include width-height-100();
+    @include fixed();
     flex-direction: column;
     padding: 50px 0px;
     z-index: 999;
