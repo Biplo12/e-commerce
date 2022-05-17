@@ -1,0 +1,116 @@
+%width-height-default {
+  width: 100%;
+  height: calc(100vh - 100px);
+}
+%width-height-100 {
+  width: 100%;
+  height: 100%;
+}
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+%flex-evenly {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+%flex-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+%flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+%flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+%flex-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+%flex-align-end {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+}
+%relative {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+%absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+%button {
+  padding: 10px 30px;
+  background: transparent;
+  border: 1px solid #fff;
+  font-size: 0.8rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+%button:hover {
+  background: white;
+  color: black;
+}
+%paragraf {
+  font-size: 0.8rem;
+  font-weight: 300;
+  padding: 20px 0;
+}
+
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-start() {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+@mixin flex-between() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin flex-evenly() {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+@mixin mobile-carousel() {
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+@mixin width-height-100() {
+  width: 100%;
+  height: 100%;
+}
+@mixin absolute() {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+@mixin absolute-minus-1000() {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+}
+@mixin relative-auto() {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+}

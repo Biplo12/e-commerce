@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./Styles/productContent.scss";
 import { ProductData } from "./ProductData";
 const ProductContent = () => {
   const [toggle, setToggle] = useState(1);

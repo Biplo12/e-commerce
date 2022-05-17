@@ -1,21 +1,14 @@
 .hero-container {
-  height: calc(100vh - 100px);
-  width: 100%;
+  @extend %width-height-default;
   .hero-video {
+    @extend %absolute;
     width: 100%;
     height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
     object-fit: cover;
   }
   .title-container {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+    @extend %width-height-100;
+    @extend %flex-align-end;
     text-align: right;
     padding: 0 40px;
     .title-content {
@@ -28,16 +21,7 @@
         font-size: 2.6rem;
       }
       button {
-        padding: 15px 60px;
-        background: transparent;
-        border: 1px solid #fff;
-        font-size: 1.1rem;
-        transition: all 0.3s ease-in-out;
-        cursor: pointer;
-      }
-      button:hover {
-        background: white;
-        color: black;
+        @extend %button;
       }
     }
   }
@@ -54,8 +38,7 @@
 }
 @media screen and (max-width: 550px) {
   .hero-container .title-container {
-    justify-content: center;
-    align-items: center;
+    @include flex-center();
     text-align: center;
     padding: 0;
   }

@@ -1,19 +1,12 @@
 .product-container {
-  width: 100%;
-  height: calc(100vh - 100px);
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  @extend %flex-evenly, %width-height-default;
   .product-left {
+    @extend %flex-evenly;
     width: 50%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     .product-gallery {
-      display: flex;
-      align-items: flex-start;
+      @extend %flex-start;
       flex-direction: column;
-      padding: 0 20px;
+      padding: p-horizontal-20;
       img {
         cursor: pointer;
         width: 60px;
@@ -21,23 +14,17 @@
       }
     }
     .product-image {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-
+      @extend %flex-start;
       img {
         width: 350px;
         height: 500px;
         object-fit: cover;
-        object-position: top center;
       }
     }
   }
   .product-right {
+    @extend %flex-end;
     width: 40%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
     .product-content {
       h4 {
         font-size: 1.2rem;
@@ -47,26 +34,18 @@
         font-weight: 400;
       }
       p {
-        font-size: 0.8rem;
-        font-weight: 300;
-        padding: 20px 0;
+        @extend %paragraf;
       }
       .size-button,
       .cart-button {
-        padding: 10px 30px;
-        background: transparent;
-        border: 1px solid #fff;
-        font-size: 0.8rem;
-        transition: all 0.3s ease-in-out;
-        cursor: pointer;
+        @extend %button;
       }
       .cart-button {
         margin-left: 20px;
       }
       .size-button:hover,
       .cart-button:hover {
-        background: white;
-        color: black;
+        @extend %button;
       }
       .styling-section,
       .composition-section {
@@ -80,7 +59,7 @@
         }
       }
       .styling-section {
-        padding: 20px 0;
+        padding: $p-vertical-20;
       }
     }
   }
@@ -88,28 +67,20 @@
 
 @media screen and (max-width: 860px) {
   .product-container {
-    justify-content: flex-start;
-    align-items: center;
+    @include flex-start();
     flex-direction: column;
     .product-left {
       width: 100%;
-      justify-content: center;
-      align-items: center;
+      @include flex-center();
       flex-direction: row-reverse;
       .product-gallery {
-        width: 100%;
-        height: 100%;
+        @include flex-start();
+        @include mobile-carousel();
+        @include width-height-100();
         flex-direction: row;
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding: 20px 0;
-        overflow-x: scroll;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
+        padding: p-vertical;
         img {
-          width: 100%;
-          height: 100%;
+          @include width-height-100();
           object-fit: cover;
           scroll-snap-align: start;
         }
@@ -121,7 +92,7 @@
     .product-right {
       width: 100%;
       text-align: center;
-      padding: 20px;
+      padding: $p-20;
       .product-content {
         .cart-button {
           margin: 20px 0px 0px 20px;

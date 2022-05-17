@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Styles/navbar.scss";
 import { NavbarLink } from "./NavbarLink";
 
 const Navbar = () => {
@@ -12,8 +11,6 @@ const Navbar = () => {
       <Link to={index.linkTo}>{index.linkName}</Link>
     </li>
   ));
-  const NavbarLinksLeft = NavbarLinks.slice(1, 5);
-  const NavbarLinksRight = NavbarLinks.slice(5, 7);
   return (
     <div
       className={navbarOpen ? "navbar-container" : "navbar-container mobile"}
@@ -24,7 +21,7 @@ const Navbar = () => {
             <h1>e-commerce</h1>
           </Link>
         </div>
-        <ul>{NavbarLinksLeft}</ul>
+        <ul>{NavbarLinks.slice(1, 5)}</ul>
       </div>
       <div className={navbarOpen ? "navbar-right" : "navbar-right mobile"}>
         <div
@@ -50,7 +47,7 @@ const Navbar = () => {
           </div>
         </div>
         <ul>
-          {NavbarLinksRight}
+          {NavbarLinks.slice(5, 7)}
           <li>
             <Link to="/cart">
               <img
