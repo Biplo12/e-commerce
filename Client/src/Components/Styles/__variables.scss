@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@300&family=Poppins:wght@100;200;500;600;700&display=swap");
 //Font
-$font-size: 1rem;
-$font-family: "Poppins", sans-serif;
-$font-color: #5f5e5f;
+$f-default: 1rem;
+$f-small: 0.8rem;
+$f-family: "Poppins", sans-serif;
+$f-color: rgb(255, 255, 255);
 //Padding
 $p-vertical-20: 20px 0px;
 $p-horizontal-20: 0px 20px;
@@ -11,5 +12,9 @@ $p-vertical-10: 10px 0px;
 $p-horizontal-10: 0px 10px;
 $p-10: 10px;
 //
+$bg-default: black;
+$m-auto: 0 auto;
+$m-10: 10px;
 $transition: all 0.3s ease-out;
 $rounded: 50px;
+$b-shadow: 0 0 5px rgba(0, 0, 0, 0.4);

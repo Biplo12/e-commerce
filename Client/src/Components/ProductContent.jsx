@@ -9,7 +9,7 @@ const ProductContent = () => {
   return (
     <div className="product-container">
       <div className="product-left">
-        <div className="product-gallery">
+        <div className="product-small-gallery">
           {ProductData.map(({ id, img }) => {
             return (
               <>
@@ -28,7 +28,7 @@ const ProductContent = () => {
             <>
               {toggle === id ? (
                 <>
-                  <div className="product-image">
+                  <div className="product-main-image">
                     <img src={img} key={id} alt="main product" />
                   </div>
                 </>
@@ -47,23 +47,27 @@ const ProductContent = () => {
             recusandae, pariatur unde, debitis sint corrupti repellat ea
             adipisci iste impedit. Totam, reiciendis.
           </p>
-          <div className="product-buttons">
-            <button className="size-button">CHECK SIZE</button>
-            <button className="cart-button">ADD TO CART</button>
+          <div className="product-sizes">
+            <button>S</button>
+            <button>M</button>
+            <button>L</button>
+            <button>XL</button>
+            <button>XXL</button>
           </div>
+          <button className="cart-button">ADD TO CART</button>
           <div
             className={
-              stylingOpen ? "styling-section" : "styling-section active"
+              stylingOpen ? "product-styling" : "product-styling active"
             }
           >
-            <button className="styling-button" onClick={handleStyling}>
+            <button className="product-styling-button" onClick={handleStyling}>
               + STYLING &amp; FIT
             </button>
             <p
               className={
                 stylingOpen
-                  ? "styling-section-paragraf"
-                  : "styling-section-paragraf active"
+                  ? "product-styling-paragraf"
+                  : "product-styling-paragraf active"
               }
             >
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti
@@ -75,18 +79,21 @@ const ProductContent = () => {
           <div
             className={
               compositionOpen
-                ? "composition-section"
-                : "composition-section active"
+                ? "product-composition"
+                : "product-composition active"
             }
           >
-            <button className="composition-button" onClick={handleComposition}>
+            <button
+              className="product-composition-button"
+              onClick={handleComposition}
+            >
               + COMPOSITION
             </button>
             <p
               className={
                 compositionOpen
-                  ? "composition-section-paragraf"
-                  : "composition-section-paragraf active"
+                  ? "product-composition-paragraf"
+                  : "product-composition-paragraf active"
               }
             >
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis

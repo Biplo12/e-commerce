@@ -3,7 +3,6 @@
 @import "__hero.scss";
 @import "__navbar.scss";
 @import "__productContent.scss";
-@import "__productSizeCard.scss";
 
 *,
 *::after,
@@ -12,9 +11,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  color: $f-color;
+  font-size: $f-default;
+  font-family: $f-family;
+  background-color: $bg-default;
+}
 a {
   text-decoration: none;
   opacity: 0.9;
+  color: $f-color;
 }
 a:hover {
   opacity: 0.8;
@@ -22,11 +28,4 @@ a:hover {
 
 ul {
   list-style: none;
-}
-
-body {
-  color: $font-color;
-  font-size: $font-size;
-  font-family: $font-family;
-  color: $font-color;
 }
