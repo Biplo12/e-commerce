@@ -48,11 +48,21 @@ const ProductContent = () => {
             adipisci iste impedit. Totam, reiciendis.
           </p>
           <div className="product-sizes">
-            <button>S</button>
-            <button>M</button>
-            <button>L</button>
-            <button>XL</button>
-            <button>XXL</button>
+            <button>
+              <span className="un">S</span>
+            </button>
+            <button>
+              <span className="un">M</span>
+            </button>
+            <button>
+              <span className="un">L</span>
+            </button>
+            <button>
+              <span className="un">XL</span>
+            </button>
+            <button>
+              <span className="un">XXL</span>
+            </button>
           </div>
           <button className="cart-button">ADD TO CART</button>
           <div
@@ -61,7 +71,7 @@ const ProductContent = () => {
             }
           >
             <button className="product-styling-button" onClick={handleStyling}>
-              + STYLING &amp; FIT
+              <span className="un">+ STYLING &amp; FIT</span>
             </button>
             <p
               className={
@@ -87,7 +97,7 @@ const ProductContent = () => {
               className="product-composition-button"
               onClick={handleComposition}
             >
-              + COMPOSITION
+              <span className="un">+ COMPOSITION</span>
             </button>
             <p
               className={

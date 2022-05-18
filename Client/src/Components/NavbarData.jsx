@@ -1,4 +1,4 @@
-export const NavbarLink = [
+export const NavbarData = [
   {
     id: 1,
     linkTo: "/",

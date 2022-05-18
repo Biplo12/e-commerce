@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { NavbarLink } from "./NavbarLink";
+import { NavbarData } from "./NavbarData";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(true);
   const handleNavbar = () => setNavbarOpen(!navbarOpen);
 
-  const NavbarLinks = NavbarLink.map((index, id) => (
+  const NavbarLinks = NavbarData.map((index, id) => (
     <li key={id}>
-      <Link to={index.linkTo}>{index.linkName}</Link>
+      <Link to={index.linkTo}>
+        <span className="un">{index.linkName}</span>
+      </Link>
     </li>
   ));
   return (

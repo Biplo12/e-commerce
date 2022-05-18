@@ -58,17 +58,19 @@
   right: 0;
 }
 %button {
-  padding: 10px 30px;
-  background: transparent;
+  padding: 10px 60px;
   border: 1px solid white;
+  background: white;
+  font-weight: 600;
   font-size: $f-small;
   transition: $transition;
-  color: $f-color;
+  color: black;
   cursor: pointer;
 }
+
 %button:hover {
-  background: white;
-  color: black;
+  background: transparent;
+  color: $f-color;
 }
 %paragraf {
   font-size: 0.8rem;
