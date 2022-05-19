@@ -1,5 +1,9 @@
 .hero-container {
   @extend %width-height-default;
+  background-image: url("../../../public/Assets/Hero/bg-hero.jpg");
+  background-size: cover;
+  background-position: center;
+
   .hero-video {
     @extend %absolute;
     width: 100%;
@@ -8,20 +12,19 @@
   }
   .title-container {
     @extend %width-height-100;
-    @extend %flex-align-end;
-    text-align: right;
+    @extend %flex-center;
+    text-align: center;
     padding: 0 40px;
     .title-content {
       z-index: 200;
       h3 {
-        font-size: 1.5rem;
-        font-weight: lighter;
+        font-size: 2.5rem;
+        font-weight: 300;
       }
-      h2 {
-        font-size: 2.6rem;
-      }
-      button {
-        @extend %button;
+      h4 {
+        font-size: 5rem;
+        letter-spacing: 30px;
+        font-weight: 100;
       }
     }
   }
@@ -41,5 +44,13 @@
     @include flex-center();
     text-align: center;
     padding: 0;
+  }
+  .hero-container .title-container .title-content {
+    h3 {
+      font-size: 1.8rem;
+    }
+    h2 {
+      font-size: 2.8rem;
+    }
   }
 }

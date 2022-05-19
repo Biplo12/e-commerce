@@ -3,6 +3,7 @@
 @import "__hero.scss";
 @import "__navbar.scss";
 @import "__productContent.scss";
+@import "__newsletter.scss";
 
 *,
 *::after,
@@ -30,9 +31,13 @@ ul {
   list-style: none;
 }
 
+input {
+  color: $f-color;
+}
+
 .un {
   display: inline-block;
-  padding-bottom: 1px;
+  padding-bottom: 0px;
   background-image: linear-gradient(#fff, #fff);
   background-position: 0 100%; /*OR bottom left*/
   background-size: 0% 1px;

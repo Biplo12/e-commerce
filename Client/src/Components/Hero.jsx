@@ -3,14 +3,9 @@ const Hero = () => {
   return (
     <>
       <div className="hero-container">
-        <video autoPlay muted loop className="hero-video">
-          <source src="/Assets/Hero/hero-video.mp4" type="video/mp4" />
-        </video>
         <div className="title-container">
           <div className="title-content">
-            <h3>FACE TO FACE STYLE</h3>
-            <h2>NEW COLLECTION</h2>
-            <button>BUY NOW</button>
+            <h4>e-commerce</h4>
           </div>
           <div className="scroll-paragraf">
             <p>SCROLL</p>
