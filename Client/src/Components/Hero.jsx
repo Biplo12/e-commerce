@@ -1,18 +1,29 @@
 import React from "react";
 const Hero = () => {
   return (
-    <>
-      <div className="hero-container">
-        <div className="title-container">
-          <div className="title-content">
-            <h4>e-commerce</h4>
-          </div>
-          <div className="scroll-paragraf">
-            <p>SCROLL</p>
-          </div>
-        </div>
+    <div className="hero-container">
+      <div className="hero-background" />
+      <div className="hero-content">
+        {" "}
+        <h5>The style that started it all.</h5>
+        <h4>
+          Never changed.
+          <br />
+          Constantly improved.
+        </h4>
+        <p>
+          Summer's on our minds. Step into the
+          <br />
+          season in style with our signature low-top
+        </p>
+        <a>
+          <span className="un">Shop here</span>
+        </a>
       </div>
-    </>
+      <div className="scroll-paragraf">
+        <p>SCROLL</p>
+      </div>
+    </div>
   );
 };
 

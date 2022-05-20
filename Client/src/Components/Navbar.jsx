@@ -45,6 +45,7 @@ const Navbar = () => {
               src="/Assets/Navbar/search.svg"
               alt="Search icon"
               width="20px"
+              className="searchIcon"
             />
           </div>
         </div>

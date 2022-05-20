@@ -1,6 +1,6 @@
 %width-height-default {
   width: 100%;
-  height: calc(100vh - 0px);
+  height: calc(100vh - 70px);
 }
 %width-height-100 {
   width: 100%;
@@ -59,12 +59,12 @@
 }
 %button {
   padding: 10px 60px;
-  border: 1px solid white;
-  background: white;
+  border: 1px solid black;
+  background: black;
   font-weight: 600;
   font-size: $f-small;
   transition: $transition;
-  color: black;
+  color: white;
   cursor: pointer;
 }
 

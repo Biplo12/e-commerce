@@ -1,5 +1,105 @@
 .newsletter-container {
+  @extend %flex-center;
   width: 100%;
   height: 40vh;
-  background-color: #333;
+  .newsletter-content {
+    width: 42.5%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+    .newsletter-input {
+      padding: $p-vertical-20;
+      input {
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+        padding-bottom: 5px;
+      }
+    }
+    button {
+      border: none;
+      outline: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 300;
+      padding: $p-horizontal-10;
+    }
+    p {
+      width: 75%;
+      font-size: 0.8rem;
+      font-weight: 300;
+    }
+  }
+  .seperate-line {
+    width: 1px;
+    height: 50%;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+  }
+  .newsletter-contact-content {
+    @extend %flex-center;
+    width: 42.5%;
+    height: 50%;
+    flex-direction: column;
+    text-align: center;
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+    h5 {
+      font-weight: 300;
+      font-size: 1.1rem;
+      padding: $p-vertical-10;
+    }
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+  }
+  .newsletter-contact-content,
+  .newsletter-content {
+    padding: $p-horizontal-10;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .newsletter-container {
+    height: 70vh;
+    flex-direction: column;
+    .newsletter-content {
+      align-items: center;
+      flex-direction: column;
+      width: 80%;
+      text-align: center;
+      .newsletter-input {
+        display: flex;
+        flex-direction: column;
+        input {
+          text-align: center;
+        }
+      }
+      button {
+        padding: $p-vertical-10;
+      }
+      p {
+        width: 100%;
+      }
+    }
+    .seperate-line {
+      display: none;
+    }
+    .newsletter-contact-content {
+      justify-content: center;
+      padding: 0px 0px 20px 0px;
+      width: 80%;
+    }
+  }
 }
