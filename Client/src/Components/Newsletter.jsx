@@ -24,11 +24,15 @@ const Newsletter = () => {
         <div className="newsletter-contact-details">
           <div>
             <h5>Customer service:</h5>
-            <a>Call +0 000 000 000</a>
+            <a>
+              <span className="un">Call +0 000 000 000</span>
+            </a>
           </div>
           <div>
             <h5>Visit us IN-STORE:</h5>
-            <a>Example address 1/23</a>
+            <a>
+              <span className="un">Example address 1/23</span>
+            </a>
           </div>
         </div>
       </div>

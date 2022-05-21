@@ -1,6 +1,7 @@
 .newsletter-container {
-  @extend %flex-center;
-  width: 100%;
+  @extend %flex-between;
+  width: 85%;
+  margin: $m-auto;
   height: 40vh;
   .newsletter-content {
     width: 42.5%;

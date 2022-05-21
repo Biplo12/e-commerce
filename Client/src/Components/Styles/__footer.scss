@@ -1,50 +1,81 @@
 .footer-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
   width: 100%;
   height: 30vh;
-  .footer-about {
-    width: 450px;
-  }
-  h3 {
-    font-size: 1rem;
-    font-weight: 400;
-  }
-  p,
-  a {
-    font-size: 0.9rem;
-    font-weight: 300;
-  }
-}
-@media screen and (max-width: 960px) {
-  .footer-container {
-    height: 60vh;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: left;
-    padding: $p-vertical-20;
-    h3 {
-      align-items: flex-start !important;
-      justify-content: flex-start !important;
-      text-align: left;
+  flex-direction: column;
+  .footer-top {
+    width: 90%;
+    margin: $m-auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    .footer-about {
+      width: 450px;
     }
-    .footer-about,
-    .footer-address,
-    .footer-contact,
-    .footer-details {
-      width: 90%;
-      padding: 0;
+    h3 {
+      font-size: 1rem;
+      font-weight: 400;
+      padding: 5px 0;
+    }
+    h5 {
+      font-size: 0.9rem;
+      font-weight: 300;
     }
     p,
-    a,
-    ul {
-      opacity: 0;
-      padding: 0;
-      height: 0 !important;
-      overflow: hidden;
-      transition: all 0.6s ease-out;
+    a {
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+    .footer-address {
+      width: 175px;
+    }
+  }
+  .footer-bottom {
+    width: 90%;
+    margin: $m-auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $p-vertical-20;
+    .footer-payments {
+      display: flex;
+      align-items: center;
+      h5 {
+        font-size: 0.7rem;
+        font-weight: 400;
+      }
+      img {
+        width: 75px;
+      }
+    }
+    .footer-links {
+      a {
+        font-size: 0.7rem;
+        padding: $p-horizontal-10;
+      }
+    }
+  }
+}
+@media screen and (max-width: 970px) {
+  .footer-container {
+    height: 45vh;
+    text-align: center;
+    .footer-top {
+      align-items: center;
+      flex-direction: column;
+      padding: $p-vertical-20;
+      h3 {
+        font-size: 1.1rem;
+      }
+      .footer-about,
+      .footer-address,
+      .footer-contact,
+      .footer-details {
+        width: 90%;
+        padding: $p-vertical-10;
+      }
+    }
+    .footer-bottom {
+      flex-direction: column;
     }
   }
 }

@@ -1,11 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { NavbarData } from "./NavbarData";
-
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(true);
+  const [navbarOnScroll, setNavbarOnScroll] = useState(false);
   const handleNavbar = () => setNavbarOpen(!navbarOpen);
-
+  const changePosition = () => {
+    if (window.scrollY >= 90) {
+      setNavbarOnScroll(true);
+    } else {
+      setNavbarOnScroll(false);
+    }
+  };
+  window.addEventListener("scroll", changePosition);
   const NavbarLinks = NavbarData.map((index, id) => (
     <li key={id}>
       <Link to={index.linkTo}>
@@ -15,7 +22,10 @@ const Navbar = () => {
   ));
   return (
     <div
-      className={navbarOpen ? "navbar-container" : "navbar-container mobile"}
+      className={[
+        navbarOpen ? "navbar-container" : "navbar-container mobile",
+        navbarOnScroll ? "navbar-container onScroll" : "navbar-container",
+      ].join(" ")}
     >
       <div className={navbarOpen ? "navbar-left" : "navbar-left mobile"}>
         <div className={navbarOpen ? "navbar-logo" : "navbar-logo mobile"}>
