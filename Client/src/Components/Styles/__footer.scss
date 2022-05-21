@@ -1,0 +1,50 @@
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+  height: 30vh;
+  .footer-about {
+    width: 450px;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  p,
+  a {
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
+}
+@media screen and (max-width: 960px) {
+  .footer-container {
+    height: 60vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+    padding: $p-vertical-20;
+    h3 {
+      align-items: flex-start !important;
+      justify-content: flex-start !important;
+      text-align: left;
+    }
+    .footer-about,
+    .footer-address,
+    .footer-contact,
+    .footer-details {
+      width: 90%;
+      padding: 0;
+    }
+    p,
+    a,
+    ul {
+      opacity: 0;
+      padding: 0;
+      height: 0 !important;
+      overflow: hidden;
+      transition: all 0.6s ease-out;
+    }
+  }
+}
