@@ -1,5 +1,7 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+
 import ProductContent from "../Components/ProductContent";
 
 const Product = () => {
@@ -7,6 +9,7 @@ const Product = () => {
     <>
       <Navbar />
       <ProductContent />
+      <Footer />
     </>
   );
 };

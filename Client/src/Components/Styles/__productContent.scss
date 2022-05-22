@@ -93,6 +93,7 @@
   .product-container {
     @include flex-start();
     flex-direction: column;
+    height: auto;
     .product-left {
       width: 100%;
       @include flex-center();
