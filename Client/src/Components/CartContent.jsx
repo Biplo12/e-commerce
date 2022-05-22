@@ -27,7 +27,7 @@ const CartContent = () => {
                   <img
                     src="./Assets/Product/example-1.png"
                     alt="product in cart"
-                    width="75px"
+                    width="50px"
                   />
                   <span className="un"> BOWLING SHIRT BLACK</span>
                 </a>
