@@ -40,25 +40,27 @@ const CartContent = () => {
               alt="product cart"
               width="100px"
             />
-            <h2>Bowling T-shirt adsd</h2>
+            <h2>Bowling T-shirt</h2>
           </div>
           <div className="cart-small-box">
             <h2>L</h2>
           </div>
           <h2>Black</h2>
           <div className="product-quantity">
-            <div className="cart-small-box">
+            <div className="cart-small-box blue-box">
               <span>+</span>
             </div>
             <div className="cart-small-box">
               <h2>1</h2>
             </div>
-            <div className="cart-small-box">
+            <div className="cart-small-box gray-box">
               <span>-</span>
             </div>
           </div>
-          <div className="cart-small-box">
-            <h2>x</h2>
+          <div className="cart-small-box gray-box">
+            <h2>
+              <span>x</span>
+            </h2>
           </div>
           <h2>$355</h2>
         </div>
@@ -84,13 +86,6 @@ const CartContent = () => {
         </div>
       </div>
       <div className="cart-bottom-buttons">
-        <div className="cart-bottom-input">
-          <p>If you have a promotion code, please enter it below:</p>
-          <input type="text" placeholder="Enter your code here" />
-          <button type="submit">
-            <span className="un"> Apply Discount</span>
-          </button>
-        </div>
         <div className="cart-bottom-checkout">
           <button type="submit">Checkout</button>
         </div>
