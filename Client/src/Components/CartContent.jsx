@@ -1,6 +1,34 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
+import axios from "axios";
+import StripeCheckout from "react-stripe-checkout";
+const stripePublicKey =
+  "pk_test_51KyFwQLyrIx7tSV8DRksQQiES0dS8k9vdL1Gvb4fN9qnYZedfONrx5t44ZVwFhE8J5cbxoACp8eX7dDAJKvwF27z00t6N9DciP";
 
 const CartContent = () => {
+  const [stripeToken, setStripeToken] = useState(null);
+  const navigate = useNavigate();
+  const onToken = (token) => {
+    setStripeToken(token);
+  };
+  useEffect(() => {
+    const makeRequest = async () => {
+      try {
+        const res = await axios.post(
+          "http://localhost:5000/api/checkout/payment",
+          {
+            tokenId: stripeToken.id,
+            amount: 2000,
+          }
+        );
+        console.log(res.data);
+        navigate("/success");
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    stripeToken && makeRequest();
+  }, [stripeToken, navigate]);
   return (
     <div className="cart-container">
       <div className="cart-link-back">
@@ -27,9 +55,6 @@ const CartContent = () => {
             <h3>Quantity</h3>
           </div>
           <div>
-            <h3>Remove</h3>
-          </div>
-          <div>
             <h3>Price</h3>
           </div>
         </div>
@@ -42,7 +67,7 @@ const CartContent = () => {
             />
             <h2>Bowling T-shirt</h2>
           </div>
-          <div className="cart-small-box">
+          <div className="product-variable cart-small-box">
             <h2>L</h2>
           </div>
           <h2>Black</h2>
@@ -57,38 +82,43 @@ const CartContent = () => {
               <span>-</span>
             </div>
           </div>
-          <div className="cart-small-box gray-box">
-            <h2>
-              <span>x</span>
-            </h2>
-          </div>
           <h2>$355</h2>
         </div>
       </div>
       <div className="cart-bottom-boxes">
-        <div className="cart-boxes-wrapper">
-          <div className="cart-discount big-box">
-            <h4>Discount: </h4>
-            <h4>$0.00 </h4>
-          </div>
-          <div className="cart-delivery big-box">
-            <h4>Delivery: </h4>
-            <h4>$0.00 </h4>
-          </div>
-          <div className="cart-subtotal big-box">
-            <h4>Subtotal: </h4>
-            <h4>$355.00 </h4>
-          </div>
-          <div className="cart-total big-box">
-            <h4>Total: </h4>
-            <h4>$355.00 </h4>
-          </div>
+        <div className="cart-discount cart-big-box">
+          <h4>Discount: </h4>
+          <h4>$0.00 </h4>
+        </div>
+        <div className="cart-delivery cart-big-box">
+          <h4>Delivery: </h4>
+          <h4>$0.00 </h4>
+        </div>
+        <div className="cart-subtotal cart-big-box">
+          <h4>Subtotal: </h4>
+          <h4>$355.00 </h4>
+        </div>
+        <div className="cart-total cart-big-box">
+          <h4>Total: </h4>
+          <h4>$355.00 </h4>
         </div>
       </div>
-      <div className="cart-bottom-buttons">
-        <div className="cart-bottom-checkout">
-          <button type="submit">Checkout</button>
-        </div>
+      <div className="cart-bottom-checkout">
+        {stripeToken ? (
+          <span>Processing. Please wait...</span>
+        ) : (
+          <StripeCheckout
+            name="E-commerce"
+            billingAddress
+            shippingAddress
+            description="Your total is $20"
+            amount={2000}
+            token={onToken}
+            stripeKey={stripePublicKey}
+          >
+            <button type="submit">Checkout</button>
+          </StripeCheckout>
+        )}
       </div>
     </div>
   );
