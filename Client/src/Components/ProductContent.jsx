@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ProductData } from "./ProductData";
+import SizeButton from "./SizeButton";
 const ProductContent = () => {
   const [toggle, setToggle] = useState(1);
   const [stylingOpen, setStylingOpen] = useState(true);
@@ -48,21 +49,10 @@ const ProductContent = () => {
             adipisci iste impedit. Totam, reiciendis.
           </p>
           <div className="product-sizes">
-            <button>
-              <span className="un">S</span>
-            </button>
-            <button>
-              <span className="un">M</span>
-            </button>
-            <button>
-              <span className="un">L</span>
-            </button>
-            <button>
-              <span className="un">XL</span>
-            </button>
-            <button>
-              <span className="un">XXL</span>
-            </button>
+            <SizeButton size={"S"} />
+            <SizeButton size={"M"} />
+            <SizeButton size={"L"} />
+            <SizeButton size={"XL"} />
           </div>
           <button className="cart-button">ADD TO CART</button>
           <div
@@ -71,7 +61,7 @@ const ProductContent = () => {
             }
           >
             <button className="product-styling-button" onClick={handleStyling}>
-              <span className="un">+ STYLING &amp; FIT</span>
+              + <span className="un">STYLING &amp; FIT</span>
             </button>
             <p
               className={
@@ -97,7 +87,7 @@ const ProductContent = () => {
               className="product-composition-button"
               onClick={handleComposition}
             >
-              <span className="un">+ COMPOSITION</span>
+              + <span className="un">COMPOSITION</span>
             </button>
             <p
               className={
