@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <div className="hero-container">
@@ -17,7 +18,9 @@ const Hero = () => {
           season in style with our signature low-top
         </p>
         <a>
-          <span className="un">Shop here</span>
+          <Link to="/new-collection">
+            <span className="un">Shop here</span>
+          </Link>
         </a>
       </div>
       <div className="scroll-paragraf">

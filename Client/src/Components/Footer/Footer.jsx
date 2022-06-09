@@ -15,18 +15,22 @@ const Footer = () => {
         </div>
         <div className="footer-address">
           <h3>Address</h3>
-          <h5>Example address 1/23, Warsaw Poland</h5>
+          <h5>
+            <a href="https://www.google.com/maps/place/Warszawa/data=!4m2!3m1!1s0x471ecc669a869f01:0x72f0be2a88ead3fc?sa=X&ved=2ahUKEwjY5In766D4AhWCr4sKHTYbBp4Q8gF6BAgIEAE">
+              <span className="un">Example address 1/23, Warsaw Poland</span>
+            </a>
+          </h5>
         </div>
         <div className="footer-contact">
           <h3>Contact</h3>
           <ul>
             <li>
-              <a href="">
+              <a href="mailto:e-commerce@gmail.com">
                 <span className="un">Email us</span>
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="tel: 000-000-0000">
                 <span className="un">+0 000 000 000</span>
               </a>
             </li>
@@ -61,7 +65,9 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="footer-payments">
           <h5>Payments powered by:</h5>
-          <img src="./Assets/Footer/stripe-logo.png" alt="" />
+          <a href="https://www.stripe.com">
+            <img src="./Assets/Footer/stripe-logo.png" alt="stripe logo" />
+          </a>
         </div>
         <div className="footer-links">
           <a href="">
