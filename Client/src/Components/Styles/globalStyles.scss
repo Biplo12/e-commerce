@@ -1,12 +1,13 @@
 @import "_variables.scss";
 @import "_placeholders.scss";
-@import "__hero.scss";
-@import "__navbar.scss";
-@import "__productContent.scss";
-@import "__newsletter.scss";
-@import "__footer.scss";
-@import "__cart.scss";
-@import "__login.scss";
+@import "../Hero/_hero.scss";
+@import "../Navbar/_navbar";
+@import "../Product/_productContent";
+@import "../Newsletter/_newsletter";
+@import "../Footer/_footer";
+@import "../Cart/_cart";
+@import "../HomeProducts/_homeProducts";
+@import "../Login&Register/_login-register";
 
 *,
 *::after,

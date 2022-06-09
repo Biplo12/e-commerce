@@ -1,0 +1,85 @@
+.hero-container {
+  width: 100%;
+  height: calc(100vh - 70px);
+  margin-top: 70px;
+  display: flex;
+  .hero-background {
+    width: 65%;
+    height: 100%;
+    background-image: url("../../../public/Assets/Hero/main_1.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-content {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    flex-direction: column;
+    padding: 0 20px 0px 30px;
+    h5 {
+      font-weight: 400;
+      font-size: 1.1rem;
+    }
+    h4 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      padding: $p-vertical-20;
+    }
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+    a {
+      font-size: 0.9rem;
+      font-weight: 400;
+      padding: $p-vertical-20;
+      cursor: pointer;
+    }
+  }
+  .scroll-paragraf {
+    position: absolute;
+    bottom: 50px;
+    right: 15px;
+    transform: rotate(-90deg);
+    p {
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+  }
+}
+@media screen and (max-width: 630px) {
+  .hero-container {
+    .hero-background {
+      width: 100%;
+    }
+    .scroll-paragraf {
+      display: none;
+    }
+    .hero-content {
+      width: 100%;
+      justify-content: flex-end;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      color: #fff;
+      h5 {
+        font-size: 0.9rem;
+      }
+      h4 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 0.8rem;
+      }
+      a {
+        color: #fff;
+      }
+      .un {
+        background-image: linear-gradient(#fff, #fff);
+      }
+    }
+  }
+}

@@ -1,19 +1,14 @@
 import React from "react";
-
+import LoginContent from "../Components/Login&Register/LoginContent";
+import Navbar from "../Components/Navbar/Navbar";
+import Footer from "../Components/Footer/Footer";
 const Login = () => {
   return (
-    <div className="login-container">
-      <div className="login-left">
-        <img src="./Assets/Login/login-register.jpg" alt="login page" />
-      </div>
-      <div className="login-right">
-        <div className="navbar-logo">
-          <h1>e-commerce</h1>
-        </div>
-        Login to our ecommerce shop
-        <form>in</form>
-      </div>
-    </div>
+    <>
+      <Navbar />
+      <LoginContent />
+      <Footer />
+    </>
   );
 };
 

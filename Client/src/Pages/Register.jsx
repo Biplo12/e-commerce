@@ -1,15 +1,15 @@
 import React from "react";
+import RegisterContent from "../Components/Login&Register/RegisterContent";
 import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
-import CartContent from "../Components/Cart/CartContent";
-const Cart = () => {
+const Register = () => {
   return (
     <>
       <Navbar />
-      <CartContent />
+      <RegisterContent />
       <Footer />
     </>
   );
 };
 
-export default Cart;
+export default Register;
