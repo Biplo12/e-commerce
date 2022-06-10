@@ -5,7 +5,6 @@ const Hero = () => {
     <div className="hero-container">
       <div className="hero-background" />
       <div className="hero-content">
-        {" "}
         <h5>The style that started it all.</h5>
         <h4>
           Never changed.
@@ -17,11 +16,9 @@ const Hero = () => {
           <br />
           season in style with our signature low-top
         </p>
-        <a>
-          <Link to="/new-collection">
-            <span className="un">Shop here</span>
-          </Link>
-        </a>
+        <Link to="/new-collection">
+          <span className="un">Shop here</span>
+        </Link>
       </div>
       <div className="scroll-paragraf">
         <p>SCROLL</p>

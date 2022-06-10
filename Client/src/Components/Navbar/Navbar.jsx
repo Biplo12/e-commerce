@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { NavbarData } from "./NavbarData";
-const Navbar = () => {
+import NavbarData from "./NavbarData";
+const Navbar = (LinkTo, LinkName) => {
   const [navbarOpen, setNavbarOpen] = useState(true);
   const [navbarOnScroll, setNavbarOnScroll] = useState(false);
   const handleNavbar = () => setNavbarOpen(!navbarOpen);
@@ -13,13 +13,6 @@ const Navbar = () => {
     }
   };
   window.addEventListener("scroll", changePosition);
-  const NavbarLinks = NavbarData.map((index, id) => (
-    <li key={id}>
-      <Link to={index.linkTo}>
-        <span className="un">{index.linkName}</span>
-      </Link>
-    </li>
-  ));
   return (
     <div
       className={[
@@ -33,7 +26,13 @@ const Navbar = () => {
             <h1>e-commerce</h1>
           </Link>
         </div>
-        <ul>{NavbarLinks.slice(1, 5)}</ul>
+        <ul>
+          <NavbarData LinkTo="/" LinkName="Home" />
+          <NavbarData LinkTo="/new-collection" LinkName="New Collection" />
+          <NavbarData LinkTo="/men" LinkName="For men" />
+          <NavbarData LinkTo="/woman" LinkName="For woman" />
+          <NavbarData LinkTo="/accessories" LinkName="Accessories" />
+        </ul>
       </div>
       <div className={navbarOpen ? "navbar-right" : "navbar-right mobile"}>
         <div
@@ -60,7 +59,6 @@ const Navbar = () => {
           </div>
         </div>
         <ul>
-          {NavbarLinks.slice(5, 7)}
           <li>
             <Link to="/cart">
               <img

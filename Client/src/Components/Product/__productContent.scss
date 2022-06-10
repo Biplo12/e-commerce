@@ -1,5 +1,7 @@
 .product-container {
-  @extend %flex-evenly, %width-height-default;
+  width: 100%;
+  height: calc(100vh - 70px);
+  @extend %flex-evenly;
   .product-left {
     @extend %flex-evenly;
     width: 50%;
@@ -35,7 +37,9 @@
         font-weight: 400;
       }
       p {
-        @extend %paragraf;
+        font-size: 0.8rem;
+        font-weight: 300;
+        padding: 20px 0;
         padding-bottom: 0;
       }
       .product-sizes {
@@ -52,10 +56,18 @@
         }
       }
       .cart-button {
-        @extend %button;
+        padding: 10px 60px;
+        border: 1px solid black;
+        background: black;
+        font-weight: 600;
+        font-size: $f-small;
+        transition: $transition;
+        color: white;
+        cursor: pointer;
       }
       .cart-button:hover {
-        @extend %button;
+        background: transparent;
+        color: $f-color;
       }
       .product-styling {
         padding: $p-vertical-20;
@@ -92,17 +104,26 @@
 
 @media screen and (max-width: 860px) {
   .product-container {
-    @include flex-start();
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     flex-direction: column;
     height: auto;
     .product-left {
       width: 100%;
-      @include flex-center();
+      display: flex;
+      justify-content: center;
+      align-items: center;
       flex-direction: row-reverse;
       .product-small-gallery {
-        @include flex-start();
-        @include mobile-carousel();
-        @include width-height-100();
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
         flex-direction: row;
         padding: p-vertical;
         img {

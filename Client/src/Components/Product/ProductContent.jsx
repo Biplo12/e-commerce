@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ProductData } from "./ProductData";
 import SizeButton from "./SizeButton";
-const ProductContent = () => {
+const ProductContent = (LinkTo, LinkName) => {
   const [toggle, setToggle] = useState(1);
   const [stylingOpen, setStylingOpen] = useState(true);
   const [compositionOpen, setCompositionOpen] = useState(true);
@@ -13,28 +13,26 @@ const ProductContent = () => {
         <div className="product-small-gallery">
           {ProductData.map(({ id, img }) => {
             return (
-              <>
-                <img
-                  src={img}
-                  key={id}
-                  onClick={() => setToggle(id)}
-                  alt="product gallery"
-                />
-              </>
+              <img
+                src={img}
+                key={id}
+                onClick={() => setToggle(id)}
+                alt="product gallery"
+              />
             );
           })}
         </div>
         {ProductData.map(({ id, img }) => {
           return (
-            <>
+            <div key={id}>
               {toggle === id ? (
                 <>
                   <div className="product-main-image">
-                    <img src={img} key={id} alt="main product" />
+                    <img src={img} alt="main product" />
                   </div>
                 </>
               ) : null}
-            </>
+            </div>
           );
         })}
       </div>
