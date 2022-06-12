@@ -5,12 +5,14 @@ import Product from "./Pages/Product";
 import Cart from "./Pages/Cart";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
-import Products from "./Pages/Products";
+import ProductsList from "./Pages/ProductsList";
+import ScrollToTop from "./Components/ScrollToTop";
 import "./Components/Styles/globalStyles.scss";
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/success" element={<Success />} />
@@ -18,9 +20,10 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/Register" element={<Register />} />
-          <Route path="/new-collection" element={<Products />} />
-          <Route path="/men" element={<Products />} />
-          <Route path="/woman" element={<Products />} />
+          <Route path="/new-collection" element={<ProductsList />} />
+          <Route path="/men" element={<ProductsList />} />
+          <Route path="/woman" element={<ProductsList />} />
+          <Route path="/accessories" element={<ProductsList />} />
         </Routes>
       </BrowserRouter>
     </div>

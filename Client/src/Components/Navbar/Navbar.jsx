@@ -69,6 +69,16 @@ const Navbar = (LinkTo, LinkName) => {
               />
             </Link>
           </li>
+          <li>
+            <Link to="/login">
+              <span className="un">Login</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/register">
+              <span className="un">Register</span>
+            </Link>
+          </li>
           <li onClick={handleNavbar}>
             <img
               src={

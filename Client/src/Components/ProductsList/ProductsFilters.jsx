@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { useLocation } from "react-router-dom";
 const ProductsContent = () => {
   const [sortOpen, setSortOpen] = useState(false);
   const handleSort = () => setSortOpen(!sortOpen);
@@ -9,10 +9,17 @@ const ProductsContent = () => {
   const handleColor = () => setColorOpen(!colorOpen);
   const [categoryOpen, setCategoryOpen] = useState(false);
   const handleCategory = () => setCategoryOpen(!categoryOpen);
+
+  let categoryLocation =
+    useLocation().pathname.slice(1).charAt(0).toUpperCase() +
+    useLocation().pathname.slice(1).slice(1);
+  categoryLocation = categoryLocation.includes("-")
+    ? (categoryLocation = categoryLocation.replace("-", " "))
+    : categoryLocation;
   return (
-    <div className="products-container">
+    <div className="products-filters-container">
       <div className="products-label">
-        <h1>Products</h1>
+        <h1>{categoryLocation}</h1>
       </div>
       <div className="products-filters">
         <h4 onClick={handleSort}>Sort By</h4>
@@ -24,7 +31,7 @@ const ProductsContent = () => {
           <div className="product-options-container">
             <select name="High price">
               <option value="Select" disabled selected>
-                Please select one:{" "}
+                Please Select One
               </option>
               <option value="High price">High price</option>
               <option value="Low price">Low price</option>

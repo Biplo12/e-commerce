@@ -1,7 +1,14 @@
-.products-container {
-  width: 100%;
-  height: auto;
-  margin-top: 70px;
+.products-filters-container {
+  width: 300px;
+  height: 100vh;
+  padding-top: 90px;
+  padding-left: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  h1 {
+    width: auto;
+  }
   .products-filters {
     width: auto;
     height: auto;
@@ -16,7 +23,7 @@
     }
     .product-filter,
     .product-filter-enabled {
-      width: 300px;
+      width: 250px;
       padding: 20px 0;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -29,11 +36,15 @@
         align-items: center;
         p {
           margin-left: 5px;
+          color: rgba(0, 0, 0, 0.6);
         }
       }
     }
     .product-filter-enabled.first {
       display: block !important;
+      select {
+        padding: 15px 5px;
+      }
     }
     .product-filter,
     .product-filter-enabled {
@@ -49,4 +60,7 @@
       }
     }
   }
+}
+
+@media screen and (min-width: 1120px) {
 }
