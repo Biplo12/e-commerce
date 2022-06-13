@@ -17,7 +17,7 @@ const Footer = () => {
           <h3>Address</h3>
           <h5>
             <a href="https://www.google.com/maps/place/Warszawa/data=!4m2!3m1!1s0x471ecc669a869f01:0x72f0be2a88ead3fc?sa=X&ved=2ahUKEwjY5In766D4AhWCr4sKHTYbBp4Q8gF6BAgIEAE">
-              <span className="un">Example address 1/23, Warsaw Poland</span>
+              Example address 1/23, Warsaw Poland
             </a>
           </h5>
         </div>

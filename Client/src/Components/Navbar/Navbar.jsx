@@ -17,8 +17,8 @@ const Navbar = (LinkTo, LinkName) => {
     <div
       className={[
         navbarOpen ? "navbar-container" : "navbar-container mobile",
-        navbarOnScroll ? "navbar-container onScroll" : "navbar-container",
-      ].join(" ")}
+        navbarOnScroll ? " onScroll" : "",
+      ].join("")}
     >
       <div className={navbarOpen ? "navbar-left" : "navbar-left mobile"}>
         <div className={navbarOpen ? "navbar-logo" : "navbar-logo mobile"}>
@@ -60,16 +60,6 @@ const Navbar = (LinkTo, LinkName) => {
         </div>
         <ul>
           <li>
-            <Link to="/cart">
-              <img
-                src="/Assets/Navbar/cart.svg"
-                alt="Cart icon"
-                className={navbarOpen ? "cartIcon" : "cartIcon mobile"}
-                width="30px"
-              />
-            </Link>
-          </li>
-          <li>
             <Link to="/login">
               <span className="un">Login</span>
             </Link>
@@ -77,6 +67,16 @@ const Navbar = (LinkTo, LinkName) => {
           <li>
             <Link to="/register">
               <span className="un">Register</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/cart">
+              <img
+                src="/Assets/Navbar/cart.svg"
+                alt="Cart icon"
+                className={navbarOpen ? "cartIcon" : "cartIcon mobile"}
+                width="30px"
+              />
             </Link>
           </li>
           <li onClick={handleNavbar}>
