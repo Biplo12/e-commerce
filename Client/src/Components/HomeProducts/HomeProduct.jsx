@@ -1,11 +1,13 @@
-import React from "react";
 import { Link } from "react-router-dom";
-const HomeProduct = ({ image, productId }) => {
+const HomeProduct = ({ item }) => {
   return (
     <div className="home-product">
-      <Link to={`/product/${productId}`}>
+      <Link to={`/product/${item._id}`}>
         <div className="home-product-image">
-          <img src={image} alt="product home" />
+          <img
+            src={item.src ? item.src : "./Assets/Product/example-2.png"}
+            alt="product"
+          />
         </div>
       </Link>
     </div>

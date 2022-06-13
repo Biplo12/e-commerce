@@ -9,9 +9,6 @@
   left: 0;
   z-index: 99;
   background-color: #fff;
-  h1 {
-    width: auto;
-  }
   .products-label {
     display: flex;
     justify-content: space-between;
@@ -38,10 +35,7 @@
     .product-filter-enabled {
       width: 250px;
       padding-bottom: 5px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      row-gap: 10px;
+      display: flex;
       border-bottom: 1px solid rgba(000, 000, 000, 0.2);
       cursor: pointer;
       grid-row-gap: 2.5px;
@@ -55,11 +49,8 @@
         }
       }
     }
-    .product-filter-enabled.first {
-      display: block;
-      select {
-        padding: 15px 5px;
-      }
+    select {
+      padding: 15px 5px;
     }
     .product-filter {
       height: 0px;

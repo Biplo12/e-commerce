@@ -1,3 +1,4 @@
+const { compareSync } = require("bcrypt");
 const JWT = require("jsonwebtoken");
 
 const verifyToken = (req, res, next) => {
@@ -6,6 +7,7 @@ const verifyToken = (req, res, next) => {
     const token = authHeader.split(" ")[1];
     JWT.verify(token, process.env.JWT_TOKEN, (err, user) => {
       if (err) res.status(403).json("Token is not valid");
+      console.log(verifyTokenAdmin);
       req.user = user;
       next();
     });
