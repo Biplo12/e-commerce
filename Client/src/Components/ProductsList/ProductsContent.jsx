@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Products from "./Products";
+// import {filter} from "../../../public/Assets/ProductList/filter.png"
 const ProductsContent = () => {
   const [sortOpen, setSortOpen] = useState(false);
   const handleSort = () => setSortOpen(!sortOpen);
@@ -16,10 +17,10 @@ const ProductsContent = () => {
   const [filteredproducts, setFilteredProducts] = useState([]);
 
   const [filters, setFilter] = useState({});
-  const [sort, setSort] = useState("newest");
+  const [sort, setSort] = useState("");
 
   //Category from URL
-  const category = useLocation().pathname.split("/")[1];
+  const category = useLocation().pathname.split("/")[2];
 
   //Setting filters on change of select
   const handleFilters = (event) => {
@@ -29,22 +30,19 @@ const ProductsContent = () => {
       [event.target.name]: value,
     });
   };
-
-  //Label from URL
   let categoryLocation =
-    useLocation().pathname.slice(1).charAt(0).toUpperCase() +
-    useLocation().pathname.slice(1).slice(1);
+    useLocation().pathname.split("/")[2].charAt(0).toUpperCase() +
+    useLocation().pathname.split("/")[2].slice(1);
   categoryLocation = categoryLocation.includes("-")
     ? (categoryLocation = categoryLocation.replace("-", " "))
     : categoryLocation;
-
   //Fetching data from DB
   useEffect(() => {
     const getProducts = async () => {
       try {
         const res = await axios.get(
           category
-            ? `http://localhost:5000/api/products/?category=${category}`
+            ? `http://localhost:5000/api/products?category=${category}`
             : "http://localhost:5000/api/products/"
         );
         setProducts(res.data);
@@ -70,11 +68,12 @@ const ProductsContent = () => {
 
   //Sort
   useEffect(() => {
-    if (sort === "newest") {
-      setFilteredProducts((prev) =>
-        [...prev].sort((b, a) => a.createdAt - b.createdAt)
-      );
-    } else if (sort === "high-price") {
+    // if (sort === "newest") {
+    //   setFilteredProducts((prev) =>
+    //     [...prev].sort((a, b) => a.createdAt - b.createdAt)
+    //   );
+    // }
+    if (sort === "high-price") {
       setFilteredProducts((prev) =>
         [...prev].sort((a, b) => b.price - a.price)
       );
@@ -110,17 +109,10 @@ const ProductsContent = () => {
             className={sortOpen ? "product-filter-enabled" : "product-filter"}
           >
             <div className="product-options-container">
-              <select
-                name="sort"
-                defaultValue="Select"
-                onChange={(event) => setSort(event.target.value)}
-              >
-                <option value="Select" disabled>
-                  Please Select One
-                </option>
-                <option value="high-price">High price</option>
+              <select onChange={(e) => setSort(e.target.value)}>
+                {/* <option value="newest">Newest</option> */}
                 <option value="low-price">Low price</option>
-                <option value="newest">Newest</option>
+                <option value="high-price">High price</option>
               </select>
             </div>
           </div>

@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import cartIcon from "../../Images/Navbar/cart.svg";
+import closeIcon from "../../Images/Navbar/close.svg";
+import menuIcon from "../../Images/Navbar/menu.svg";
+import searchIcon from "../../Images/Navbar/search.svg";
 import NavbarData from "./NavbarData";
 const Navbar = (LinkTo, LinkName) => {
   const [navbarOpen, setNavbarOpen] = useState(true);
@@ -28,10 +32,13 @@ const Navbar = (LinkTo, LinkName) => {
         </div>
         <ul>
           <NavbarData LinkTo="/" LinkName="Home" />
-          <NavbarData LinkTo="/new-collection" LinkName="New Collection" />
-          <NavbarData LinkTo="/men" LinkName="For men" />
-          <NavbarData LinkTo="/woman" LinkName="For woman" />
-          <NavbarData LinkTo="/accessories" LinkName="Accessories" />
+          <NavbarData
+            LinkTo="/products/new-collection"
+            LinkName="New Collection"
+          />
+          <NavbarData LinkTo="/products/men" LinkName="For men" />
+          <NavbarData LinkTo="/products/woman" LinkName="For woman" />
+          <NavbarData LinkTo="/products/accessories" LinkName="Accessories" />
         </ul>
       </div>
       <div className={navbarOpen ? "navbar-right" : "navbar-right mobile"}>
@@ -51,7 +58,7 @@ const Navbar = (LinkTo, LinkName) => {
           >
             <input type="text" placeholder="Search" />
             <img
-              src="/Assets/Navbar/search.svg"
+              src={searchIcon}
               alt="Search icon"
               width="20px"
               className="searchIcon"
@@ -72,7 +79,7 @@ const Navbar = (LinkTo, LinkName) => {
           <li>
             <Link to="/cart">
               <img
-                src="/Assets/Navbar/cart.svg"
+                src={cartIcon}
                 alt="Cart icon"
                 className={navbarOpen ? "cartIcon" : "cartIcon mobile"}
                 width="30px"
@@ -81,11 +88,7 @@ const Navbar = (LinkTo, LinkName) => {
           </li>
           <li onClick={handleNavbar}>
             <img
-              src={
-                navbarOpen
-                  ? "/Assets/Navbar/menu.svg"
-                  : "/Assets/Navbar/close.svg"
-              }
+              src={navbarOpen ? menuIcon : closeIcon}
               alt="Menu icon"
               className="menuIcon"
               width="20px"

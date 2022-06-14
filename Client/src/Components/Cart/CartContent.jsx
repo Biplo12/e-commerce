@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import productCart from "../../Images/Product/example-1.png";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
 const stripePublicKey =
@@ -59,11 +60,7 @@ const CartContent = () => {
         </div>
         <div className="cart-table-item">
           <div className="product-description">
-            <img
-              src="./Assets/Product/example-1.png"
-              alt="product cart"
-              width="100px"
-            />
+            <img src={productCart} alt="product cart" width="100px" />
             <h2>Bowling T-shirt</h2>
           </div>
           <div className="product-variable cart-small-box">

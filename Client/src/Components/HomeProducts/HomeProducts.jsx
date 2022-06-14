@@ -27,7 +27,6 @@ const HomeProducts = () => {
         .map((item) => (
           <HomeProduct item={item} key={item._id} />
         ))}
-      ;
     </div>
   );
 };

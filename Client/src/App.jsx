@@ -16,14 +16,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/success" element={<Success />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/product/:id" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/Register" element={<Register />} />
-          <Route path="/new-collection" element={<ProductsList />} />
-          <Route path="/men" element={<ProductsList />} />
-          <Route path="/woman" element={<ProductsList />} />
-          <Route path="/accessories" element={<ProductsList />} />
+          <Route path="/products/:category" element={<ProductsList />} />
         </Routes>
       </BrowserRouter>
     </div>

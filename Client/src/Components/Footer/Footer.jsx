@@ -1,4 +1,5 @@
 import { useState } from "react";
+import stripeLogo from "../../Images/Footer/stripe-logo.png";
 
 const Footer = () => {
   return (
@@ -66,7 +67,7 @@ const Footer = () => {
         <div className="footer-payments">
           <h5>Payments powered by:</h5>
           <a href="https://www.stripe.com">
-            <img src="./Assets/Footer/stripe-logo.png" alt="stripe logo" />
+            <img src={stripeLogo} alt="stripe logo" />
           </a>
         </div>
         <div className="footer-links">
