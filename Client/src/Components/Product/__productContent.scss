@@ -43,8 +43,11 @@
         padding-bottom: 0;
       }
       .product-sizes {
-        @extend %flex-start;
-        gap: 20px;
+        select {
+          outline: none;
+          margin: 20px 0;
+          padding: 15px 5px;
+        }
         button {
           font-size: 1.3rem;
           border: none;
