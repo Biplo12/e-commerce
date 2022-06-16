@@ -1,14 +1,17 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { publicRequest } from "../../requestMethods";
-import homeProductExample from "../../Images/Product/example-3.png";
-import { ProductSmallGallery } from "./ProductSmallGallery";
+import { ProductData } from "./ProductData";
+import SingleProduct from "./SingleProduct";
+import homeProductExample from "../../Images/Product/example-1.png";
 const ProductContent = () => {
   const [toggle, setToggle] = useState(1);
   const [stylingOpen, setStylingOpen] = useState(true);
   const [compositionOpen, setCompositionOpen] = useState(true);
   const [productData, setProductData] = useState({});
   const [filters, setFilter] = useState({});
+
   const handleFilters = (event) => {
     const value = event.target.value;
     setFilter({
@@ -31,12 +34,41 @@ const ProductContent = () => {
     getProduct();
   }, [productId]);
 
+  const imageArray = productData.image;
+
   const handleStyling = () => setStylingOpen(!stylingOpen);
   const handleComposition = () => setCompositionOpen(!compositionOpen);
+
   return (
     <div className="product-container">
+      {/* {ProductData.map(({ id, imageArray }) => {
+            return (
+              <img
+                src={imageArray}
+                key={id}
+                onClick={() => setToggle(id)}
+                alt="product gallery"
+              />
+            );
+          })}
+        </div>
+        {ProductData.map(({ id, src }) => {
+          return (
+            <React.Fragment key={id}>
+              {toggle === id ? (
+                <>
+                  <div className="product-main-image">
+                    <img src={src} alt="main product" />
+                  </div>
+                </>
+              ) : null}
+            </React.Fragment>
+          );
+        })} */}
       <div className="product-left">
-        <div className="product-small-gallery"></div>
+        <div className="product-small-gallery">
+          <SingleProduct image={imageArray} />
+        </div>
         <div className="product-right">
           <div className="product-content">
             <h4>BOWLING SHIRT BLACK</h4>
