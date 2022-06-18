@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import productCart from "../../Images/Product/example-1.png";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
 const stripePublicKey =
@@ -32,7 +31,6 @@ const CartContent = () => {
   return (
     <div className="cart-container">
       <div className="cart-link-back">
-        {" "}
         <a href="/products">
           <span className="un">Keep shopping</span>
         </a>
@@ -60,7 +58,7 @@ const CartContent = () => {
         </div>
         <div className="cart-table-item">
           <div className="product-description">
-            <img src={productCart} alt="product cart" width="100px" />
+            <img src="" alt="product cart" width="100px" />
             <h2>Bowling T-shirt</h2>
           </div>
           <div className="product-variable cart-small-box">
