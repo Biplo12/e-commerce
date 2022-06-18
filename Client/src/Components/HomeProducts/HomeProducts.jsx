@@ -19,7 +19,25 @@ const HomeProducts = () => {
     };
     getProducts();
   }, []);
-  return <div className="home-products-container"></div>;
+
+  return (
+    <div className="home-products-container">
+      {products
+        .filter((item, idx) => idx < 6)
+        .map((item) => (
+          <div className="home-product">
+            <Link to={`/Product/${item._id}`} key={item._id}>
+              {item.image
+                ?.filter((i, idx) => idx < 1)
+                .map((i) => {
+                  return <img src={`/Assets/Product/${i}.png`} alt="product" />;
+                })}
+            </Link>
+          </div>
+        ))
+        .slice(1)}
+    </div>
+  );
 };
 
 export default HomeProducts;

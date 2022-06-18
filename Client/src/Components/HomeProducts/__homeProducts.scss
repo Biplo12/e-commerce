@@ -9,12 +9,10 @@
   .home-product {
     width: calc(50% - 50px);
     padding: 10px 0px !important;
-    .home-product-image {
-      img {
-        width: 100%;
-        height: 800px;
-        object-fit: cover;
-      }
+    img {
+      width: 100%;
+      height: 800px;
+      object-fit: cover;
     }
   }
 }
