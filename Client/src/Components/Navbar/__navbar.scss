@@ -74,6 +74,24 @@
         padding: 0px 0px 0px 10px;
       }
     }
+    .cart-icon {
+      display: flex;
+      .cart-badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #000;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 400;
+        position: relative;
+        top: -5px;
+        right: 5px;
+      }
+    }
   }
 }
 
@@ -135,6 +153,12 @@
     }
     .navbar-right.mobile {
       flex-direction: column-reverse;
+      .navbar-search-container {
+        margin: 10px 20px;
+      }
+      .cart-icon {
+        margin-left: 10px;
+      }
     }
     .navbar-right.mobile ul {
       flex-direction: column;

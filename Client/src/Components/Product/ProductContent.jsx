@@ -1,27 +1,30 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { publicRequest } from "../../requestMethods";
+import { addToCart } from "../../Redux/cartReducer";
 const ProductContent = () => {
+  //Image change on click
   const [toggle, setToggle] = useState(0);
+
+  //Styling and composition divs appears on click
   const [stylingOpen, setStylingOpen] = useState(true);
   const [compositionOpen, setCompositionOpen] = useState(true);
-  const [filter, setFilter] = useState({});
+  const handleStyling = () => setStylingOpen(!stylingOpen);
+  const handleComposition = () => setCompositionOpen(!compositionOpen);
 
-  const [product, setProduct] = useState([]);
+  //Color and size select states
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
 
-  useEffect(() => {
-    const handleFilters = (event) => {
-      const value = event.target.value;
-      setFilter({
-        ...filter,
-        [event.target.name]: value,
-      });
-    };
-  }, [filter]);
-  console.log(filter);
+  const [quantity, setQuantity] = useState(1);
+
+  //Product ID
   const productId = useLocation().pathname.split("/")[2];
 
+  //Fetching data from DB
+  const [product, setProduct] = useState([]);
   useEffect(() => {
     const getProduct = async () => {
       try {
@@ -33,8 +36,14 @@ const ProductContent = () => {
     };
     getProduct();
   }, [productId]);
-  const handleStyling = () => setStylingOpen(!stylingOpen);
-  const handleComposition = () => setCompositionOpen(!compositionOpen);
+
+  //Dispatching to redux
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    quantity > 0 && setQuantity(1);
+    dispatch(addToCart({ ...product, quantity, color, size }));
+  };
+
   return (
     <div className="product-container">
       <div className="product-left">
@@ -69,7 +78,8 @@ const ProductContent = () => {
           <p>{product.description}</p>
           <div className="product-selects">
             <div className="product-sizes">
-              <select name="sizes" onChange={(e) => setFilter(e.target.value)}>
+              <select name="sizes" onChange={(e) => setSize(e.target.value)}>
+                <option value="size">Size</option>
                 {product.size?.map((s) => {
                   return (
                     <option value={s} key={s}>
@@ -79,11 +89,10 @@ const ProductContent = () => {
                 })}
               </select>
             </div>
-            <div
-              className="product-colors"
-              onChange={(e) => setFilter(e.target.value)}
-            >
-              <select name="color">
+            <div className="product-colors">
+              <select name="color" onChange={(e) => setColor(e.target.value)}>
+                <option value="color">Color</option>
+
                 {product.color?.map((c) => {
                   return (
                     <option value={c} key={c}>
@@ -94,7 +103,9 @@ const ProductContent = () => {
               </select>
             </div>
           </div>
-          <button className="cart-button">ADD TO CART</button>
+          <button className="cart-button" onClick={handleClick}>
+            ADD TO CART
+          </button>
           <div
             className={
               stylingOpen ? "product-styling" : "product-styling active"

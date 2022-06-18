@@ -115,20 +115,17 @@
 
 @media screen and (max-width: 860px) {
   .product-container {
+    width: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: auto;
     .product-left {
       width: 100%;
-      height: 900px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: row-reverse;
+      overflow: hidden;
       .product-small-gallery {
-        height: 100%;
+        height: 700px;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
@@ -136,7 +133,8 @@
         overflow-y: hidden;
         img {
           width: 100% !important;
-          object-fit: contain;
+          height: 100%;
+          object-fit: cover !important;
           scroll-snap-align: start;
         }
       }

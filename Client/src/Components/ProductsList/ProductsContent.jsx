@@ -2,7 +2,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Products from "./Products";
-// import {filter} from "../../../public/Assets/ProductList/filter.png"
+import filterIcon from "../../Images/ProductList/filter.png";
+import closeIcon from "../../Images/ProductList/close.svg";
+
 const ProductsContent = () => {
   const [sortOpen, setSortOpen] = useState(false);
   const handleSort = () => setSortOpen(!sortOpen);
@@ -46,7 +48,6 @@ const ProductsContent = () => {
             : "http://localhost:5000/api/products/"
         );
         setProducts(res.data);
-        console.log(res);
       } catch (err) {
         console.log(err);
       }
@@ -91,11 +92,7 @@ const ProductsContent = () => {
           <h1>{categoryLocation}</h1>
           <div className="filter-icon" onClick={handleFiltersMenu}>
             <img
-              src={
-                filtersOpen
-                  ? "./Assets/ProductList/filter.png"
-                  : "./Assets/ProductList/close.svg"
-              }
+              src={filtersOpen ? filterIcon : closeIcon}
               alt="filter icon"
               height="22px"
             />

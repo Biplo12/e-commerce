@@ -16,7 +16,7 @@ const Hero = () => {
           <br />
           season in style with our signature low-top
         </p>
-        <Link to="/new-collection">
+        <Link to="/products/new-collection">
           <span className="un">Shop here</span>
         </Link>
       </div>

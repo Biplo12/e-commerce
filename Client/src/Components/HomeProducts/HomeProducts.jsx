@@ -25,12 +25,18 @@ const HomeProducts = () => {
       {products
         .filter((item, idx) => idx < 6)
         .map((item) => (
-          <div className="home-product">
-            <Link to={`/Product/${item._id}`} key={item._id}>
+          <div className="home-product" key={item._id}>
+            <Link to={`/Product/${item._id}`}>
               {item.image
                 ?.filter((i, idx) => idx < 1)
                 .map((i) => {
-                  return <img src={`/Assets/Product/${i}.png`} alt="product" />;
+                  return (
+                    <img
+                      src={`/Assets/Product/${i}.png`}
+                      alt="product"
+                      key={item._id}
+                    />
+                  );
                 })}
             </Link>
           </div>

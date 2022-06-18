@@ -1,14 +1,18 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import cartIcon from "../../Images/Navbar/cart.svg";
 import closeIcon from "../../Images/Navbar/close.svg";
 import menuIcon from "../../Images/Navbar/menu.svg";
 import searchIcon from "../../Images/Navbar/search.svg";
 import NavbarData from "./NavbarData";
-const Navbar = (LinkTo, LinkName) => {
+const Navbar = () => {
+  //Mobile navbar state
   const [navbarOpen, setNavbarOpen] = useState(true);
-  const [navbarOnScroll, setNavbarOnScroll] = useState(false);
   const handleNavbar = () => setNavbarOpen(!navbarOpen);
+
+  //onSroll style change
+  const [navbarOnScroll, setNavbarOnScroll] = useState(false);
   const changePosition = () => {
     if (window.scrollY >= 90) {
       setNavbarOnScroll(true);
@@ -17,6 +21,8 @@ const Navbar = (LinkTo, LinkName) => {
     }
   };
   window.addEventListener("scroll", changePosition);
+
+  const quantity = useSelector((state) => state.cart.quantity);
   return (
     <div
       className={[
@@ -78,12 +84,17 @@ const Navbar = (LinkTo, LinkName) => {
           </li>
           <li>
             <Link to="/cart">
-              <img
-                src={cartIcon}
-                alt="Cart icon"
-                className={navbarOpen ? "cartIcon" : "cartIcon mobile"}
-                width="30px"
-              />
+              <div className="cart-icon">
+                <img
+                  src={cartIcon}
+                  alt="Cart icon"
+                  className={navbarOpen ? "cartIcon" : "cartIcon mobile"}
+                  width="30px"
+                />
+                <div className="cart-badge">
+                  <span>{quantity}</span>
+                </div>
+              </div>
             </Link>
           </li>
           <li onClick={handleNavbar}>
