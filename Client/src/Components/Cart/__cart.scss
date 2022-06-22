@@ -39,7 +39,10 @@
         font-weight: 300;
       }
     }
-
+    .empty-bag {
+      padding: 2rem 0;
+      text-align: center;
+    }
     .cart-table-item {
       width: 90%;
       height: 100%;
@@ -132,6 +135,14 @@
       background: transparent;
       color: black;
       border: 1px solid #001645;
+    }
+    .disabled-button {
+      background: rgba(0, 22, 69, 0.5);
+    }
+    .disabled-button:hover {
+      background: rgba(0, 22, 69, 0.5);
+      color: white;
+      cursor: default;
     }
   }
 }

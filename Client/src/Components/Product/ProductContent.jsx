@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
@@ -79,7 +80,6 @@ const ProductContent = () => {
           <div className="product-selects">
             <div className="product-sizes">
               <select name="sizes" onChange={(e) => setSize(e.target.value)}>
-                <option value="size">Size</option>
                 {product.size?.map((s) => {
                   return (
                     <option value={s} key={s}>
@@ -91,8 +91,6 @@ const ProductContent = () => {
             </div>
             <div className="product-colors">
               <select name="color" onChange={(e) => setColor(e.target.value)}>
-                <option value="color">Color</option>
-
                 {product.color?.map((c) => {
                   return (
                     <option value={c} key={c}>

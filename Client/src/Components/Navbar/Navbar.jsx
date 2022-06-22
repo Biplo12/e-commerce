@@ -73,16 +73,6 @@ const Navbar = () => {
         </div>
         <ul>
           <li>
-            <Link to="/login">
-              <span className="un">Login</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/register">
-              <span className="un">Register</span>
-            </Link>
-          </li>
-          <li>
             <Link to="/cart">
               <div className="cart-icon">
                 <img
