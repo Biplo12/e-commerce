@@ -58,8 +58,7 @@
         font-weight: 400;
       }
       .product-description {
-        @extend %flex-center;
-
+        @extend %flex-end;
         img {
           width: 75px;
           height: 75px;

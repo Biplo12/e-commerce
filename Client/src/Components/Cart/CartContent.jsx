@@ -2,38 +2,31 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import { userRequest } from "../../requestMethods";
+
 import StripeCheckout from "react-stripe-checkout";
 const stripePublicKey =
   "pk_test_51KyFwQLyrIx7tSV8DRksQQiES0dS8k9vdL1Gvb4fN9qnYZedfONrx5t44ZVwFhE8J5cbxoACp8eX7dDAJKvwF27z00t6N9DciP";
 
 const CartContent = () => {
-  const [quantity, setQuantity] = useState(1);
-  const handleQuantity = (mark) => {
-    mark === "plus"
-      ? setQuantity(quantity + 1)
-      : quantity > 1 && setQuantity(quantity - 1);
-  };
-
   const cart = useSelector((state) => state.cart);
+
   //Stripe checkout
   const [stripeToken, setStripeToken] = useState(null);
-
+  const [total, setTotal] = useState(0);
   let delivery = 5.0;
   let discount = 0.0;
-  let total = cart.total * quantity - discount + delivery;
   //Stripe checkout state
   const navigate = useNavigate();
 
   const onToken = (token) => {
     setStripeToken(token);
   };
-
   useEffect(() => {
     const makeRequest = async () => {
       try {
         const res = await userRequest.post("/checkout/payment", {
           tokenId: stripeToken.id,
-          amount: total,
+          amount: setTotal((total = cart.total + delivery - discount)) * 100,
         });
         navigate("/success");
       } catch (err) {
@@ -41,7 +34,7 @@ const CartContent = () => {
       }
     };
     stripeToken && makeRequest();
-  }, [stripeToken, navigate, cart?.total]);
+  }, [stripeToken, navigate, total]);
 
   return (
     <div className="cart-container">
@@ -93,20 +86,8 @@ const CartContent = () => {
               </div>
               <h2>{cart.color}</h2>
               <div className="product-quantity">
-                <div
-                  className="cart-small-box blue-box"
-                  onClick={() => handleQuantity("plus")}
-                >
-                  <span>+</span>
-                </div>
                 <div className="cart-small-box">
-                  <h2>{quantity}</h2>
-                </div>
-                <div
-                  className="cart-small-box gray-box"
-                  onClick={() => handleQuantity("minus")}
-                >
-                  <span>-</span>
+                  <h2>{cart.quantity}</h2>
                 </div>
               </div>
               <h2>{cart.price}</h2>
@@ -117,7 +98,7 @@ const CartContent = () => {
       <div className="cart-bottom-boxes">
         <div className="cart-subtotal cart-big-box">
           <h4>Subtotal: </h4>
-          <h4>${(cart.total * quantity).toFixed(2)}</h4>
+          <h4>${(total - delivery + discount).toFixed(2)}</h4>
         </div>
         <div className="cart-discount cart-big-box">
           <h4>Discount: </h4>
