@@ -15,6 +15,10 @@ const ProductContent = () => {
   const handleStyling = () => setStylingOpen(!stylingOpen);
   const handleComposition = () => setCompositionOpen(!compositionOpen);
 
+  //Color and size select states
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
+
   const [quantity, setQuantity] = useState(1);
 
   //Product ID
@@ -33,15 +37,14 @@ const ProductContent = () => {
     };
     getProduct();
   }, [productId]);
-  //Color and size select states
+
   //Dispatching to redux
   const dispatch = useDispatch();
   const handleClick = () => {
     quantity > 0 && setQuantity(1);
     dispatch(addToCart({ ...product, quantity, color, size }));
   };
-  const [color, setColor] = useState("");
-  const [size, setSize] = useState("");
+
   return (
     <div className="product-container">
       <div className="product-left">
@@ -77,7 +80,6 @@ const ProductContent = () => {
           <div className="product-selects">
             <div className="product-sizes">
               <select name="sizes" onChange={(e) => setSize(e.target.value)}>
-                <option value="size">Size</option>
                 {product.size?.map((s) => {
                   return (
                     <option value={s} key={s}>
@@ -88,13 +90,7 @@ const ProductContent = () => {
               </select>
             </div>
             <div className="product-colors">
-              <select
-                name="color"
-                onChange={(e) => setColor(e.target.value)}
-                id="colorSelect"
-              >
-                <option value="color">Color</option>
-
+              <select name="color" onChange={(e) => setColor(e.target.value)}>
                 {product.color?.map((c) => {
                   return (
                     <option value={c} key={c}>
@@ -105,11 +101,7 @@ const ProductContent = () => {
               </select>
             </div>
           </div>
-          <button
-            className="cart-button"
-            disabled={size === "" || color === "" ? true : false}
-            onClick={handleClick}
-          >
+          <button className="cart-button" onClick={handleClick}>
             ADD TO CART
           </button>
           <div

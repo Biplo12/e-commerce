@@ -12,10 +12,9 @@ const CartContent = () => {
 
   //Stripe checkout
   const [stripeToken, setStripeToken] = useState(null);
+  const [total, setTotal] = useState(0);
   let delivery = 5.0;
   let discount = 0.0;
-  let subTotal = cart.total;
-  let total = cart.total + delivery - discount;
   //Stripe checkout state
   const navigate = useNavigate();
 
@@ -27,7 +26,7 @@ const CartContent = () => {
       try {
         const res = await userRequest.post("/checkout/payment", {
           tokenId: stripeToken.id,
-          amount: total * 100,
+          amount: setTotal((total = cart.total + delivery - discount)) * 100,
         });
         navigate("/success");
       } catch (err) {
@@ -91,7 +90,7 @@ const CartContent = () => {
                   <h2>{cart.quantity}</h2>
                 </div>
               </div>
-              <h2>${cart.price}</h2>
+              <h2>{cart.price}</h2>
             </div>
           ))
         )}
@@ -99,7 +98,7 @@ const CartContent = () => {
       <div className="cart-bottom-boxes">
         <div className="cart-subtotal cart-big-box">
           <h4>Subtotal: </h4>
-          <h4>${subTotal.toFixed(2)}</h4>
+          <h4>${(total - delivery + discount).toFixed(2)}</h4>
         </div>
         <div className="cart-discount cart-big-box">
           <h4>Discount: </h4>
