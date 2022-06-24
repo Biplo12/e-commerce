@@ -30,10 +30,11 @@
       @extend %flex-center;
       padding-left: $p-20;
       li {
-        padding: $p-horizontal-10;
+        padding: 7.5px;
         text-align: center;
         cursor: pointer;
         a {
+          font-size: 1rem;
           transition: $transition;
         }
       }
@@ -95,7 +96,7 @@
   }
 }
 
-@media (max-width: 1125px) {
+@media (max-width: 1100px) {
   .navbar-left ul {
     position: absolute;
     top: -1000px;
@@ -106,7 +107,7 @@
     top: -1000px;
     left: -1000px;
   }
-  .navbar-right ul li:last-child {
+  .navbar-right ul li {
     display: flex !important;
     position: static !important;
   }
@@ -184,7 +185,7 @@
     }
   }
 }
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 620px) {
   .navbar-container {
     display: flex;
     justify-content: space-evenly;
@@ -224,5 +225,14 @@
     top: 0%;
     width: 100%;
     margin-left: 0%;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .navbar-right ul li:nth-child(1) {
+    display: none !important;
+  }
+  .navbar-right.mobile ul li:nth-child(1) {
+    display: flex !important;
   }
 }
