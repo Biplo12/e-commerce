@@ -80,6 +80,14 @@
         background: transparent;
         color: $f-color;
       }
+      .cart-button:disabled {
+        background: rgba(0, 22, 69, 0.5);
+        border: none;
+        cursor: default;
+      }
+      .cart-button:disabled:hover {
+        color: white;
+      }
       .product-styling {
         padding: $p-vertical-20;
       }

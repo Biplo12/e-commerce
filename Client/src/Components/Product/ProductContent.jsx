@@ -80,6 +80,10 @@ const ProductContent = () => {
           <div className="product-selects">
             <div className="product-sizes">
               <select name="sizes" onChange={(e) => setSize(e.target.value)}>
+                <option value="color" disabled selected>
+                  Size
+                </option>
+
                 {product.size?.map((s) => {
                   return (
                     <option value={s} key={s}>
@@ -91,6 +95,9 @@ const ProductContent = () => {
             </div>
             <div className="product-colors">
               <select name="color" onChange={(e) => setColor(e.target.value)}>
+                <option value="size" disabled selected>
+                  Color
+                </option>
                 {product.color?.map((c) => {
                   return (
                     <option value={c} key={c}>
@@ -101,7 +108,11 @@ const ProductContent = () => {
               </select>
             </div>
           </div>
-          <button className="cart-button" onClick={handleClick}>
+          <button
+            className="cart-button"
+            disabled={size === "" || color === "" ? true : false}
+            onClick={handleClick}
+          >
             ADD TO CART
           </button>
           <div
