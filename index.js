@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
+const path = require("path");
 
 const userRouter = require("./routes/user");
 const authRouter = require("./routes/auth");
@@ -28,11 +29,11 @@ app.use("/api/carts", cartRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/checkout", stripeRouter);
 
-// app.use(express.static(path.join(__dirname, "/Client")));
+app.use(express.static(path.join(__dirname, "/Client")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "/Client/build", "index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/Client/build", "index.html"));
+});
 
 app.listen(process.env.PORT || 3001, () => {
   console.log(`Backend server is running on port ${process.env.PORT}`);
