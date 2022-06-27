@@ -2,6 +2,8 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { herokuRequest } from "../../requestMethods";
+
 const HomeProducts = () => {
   const [products, setProducts] = useState([]);
 
@@ -9,8 +11,8 @@ const HomeProducts = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:5000/api/products?category=new-collection"
+        const res = await herokuRequest.get(
+          "/products?category=new-collection"
         );
         setProducts(res.data);
       } catch (err) {

@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { publicRequest } from "../../requestMethods";
+import { publicRequest, herokuRequest } from "../../requestMethods";
 import { addToCart } from "../../Redux/cartReducer";
 const ProductContent = () => {
   //Image change on click
@@ -29,7 +29,7 @@ const ProductContent = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await publicRequest.get(`/products/find/${productId}`);
+        const res = await herokuRequest.get(`/products/find/${productId}`);
         setProduct(res.data);
       } catch (err) {
         console.log(err);

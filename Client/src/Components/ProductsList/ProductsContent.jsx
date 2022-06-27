@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import Products from "./Products";
 import filterIcon from "../../Images/ProductList/filter.png";
 import closeIcon from "../../Images/ProductList/close.svg";
+import { herokuRequest } from "../../requestMethods";
 
 const ProductsContent = () => {
   const [sortOpen, setSortOpen] = useState(false);
@@ -42,10 +43,8 @@ const ProductsContent = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await axios.get(
-          category
-            ? `http://localhost:5000/api/products?category=${category}`
-            : "http://localhost:5000/api/products/"
+        const res = await herokuRequest.get(
+          category ? `/products?category=${category}` : "/products/"
         );
         setProducts(res.data);
       } catch (err) {

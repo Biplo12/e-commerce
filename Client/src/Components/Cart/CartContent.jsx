@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
-import { userRequest } from "../../requestMethods";
+import { userRequest, herokuRequest } from "../../requestMethods";
 
 import StripeCheckout from "react-stripe-checkout";
 const stripePublicKey =
@@ -25,7 +25,7 @@ const CartContent = () => {
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        const res = await userRequest.post("/checkout/payment", {
+        const res = await herokuRequest.post("/checkout/payment", {
           tokenId: stripeToken.id,
           amount: total * 100,
         });
